@@ -2,15 +2,79 @@
 <p>Find me in app/views/surveys/show.html.erb</p>
 
 <!--Main dashboard-->
-<h4>Well being</h4>
-<p><%= @well_being %></p>
-<h4>Personal growth</h4>
-<p><%= @personal_growth %></p>
 
-<h4>Collaboration</h4>
-<p><%= @collaboration %></p>
-<h4>Tools & Processes</h4>
-<p><%= @tools %></p>
-<h4>Enterprise culture</h4>
-<p><%= @enterprise_culture %></p>
+<div class="container">
+  <h1 class="orange-font"> Team's pulse dashboard</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card orange-card">
+        <h4>Global Happiness</h4>
+        <%= link_to "Reviews", "#", class: "button button-white" %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h4>Well being</h4>
+        <p class="light-grey-text">My team has a good work-life balance</p>
+        <div class="frame">
+          <p><%= @well_being %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h4>Personal growth</h4>
+        <p class="light-grey-text">My team feel recognized and supported in their career path</p>
+        <div class="frame">
+          <p><%= @personal_growth %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h4>Collaboration</h4>
+        <p class="light-grey-text">My team evolves in a collaborative environment </p>
+        <div class="frame">
+          <p><%= @collaboration %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <h4>Tools & Processes</h4>
+        <p class="light-grey-text">My team has access to everything they need</p>
+        <div class="frame">
+          <p><%= @tools %></p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card">
+        <h4>Enterprise culture</h4>
+        <p class="light-grey-text">Engagement, purpose, strategy</p>
+        <div class="frame">
+          <p><%= @enterprise_culture %></p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<!-- waiting for the average given by the controller-->
+
+
+<%= link_to "Click me", "#", class: "button button-orange" %>
+<%= link_to "Click me", "#", class: "button button-purple" %>
+<%= link_to "Click me", "#", class: "button button-white" %>
+
+
 

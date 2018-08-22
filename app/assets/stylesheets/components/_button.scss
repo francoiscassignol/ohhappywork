@@ -1,0 +1,46 @@
+.button {
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 14px 10px;
+    cursor: pointer;
+    padding: 14px 60px;
+    border-radius: 3px;
+}
+
+.button:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.button-purple{
+  background-color: #6A00E5;
+}
+
+.button-purple:hover{
+  background-color: #4126AB;
+}
+
+
+.button-orange {
+    background-color: #FFB200;
+}
+
+
+.button-orange:hover{
+    background-color: #EFA901;
+}
+
+.button-white{
+  background-color: white;
+  box-shadow: -5px 9px 10px 1px rgba(0,0,0,0.07);
+  color: #626262;
+}
+
+
+.button-white:hover{
+  color: #626262;
+}
