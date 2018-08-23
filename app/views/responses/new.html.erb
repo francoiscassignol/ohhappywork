@@ -8,7 +8,7 @@
 
           <div class="form-group">
             <%= label_tag  response_key, question.text %>
-            <%= range_field response_key, :rating, in: 1..10, class: "form-control" %>
+            <%= range_field response_key, :rating, in: 1..5, class: "form-control" %>
             <!-- customise name of field for easier params -->
             <%= hidden_field_tag "#{response_key}[question_id]", question.id  %>
           </div>
