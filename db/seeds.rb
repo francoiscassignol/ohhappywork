@@ -38,21 +38,19 @@ survey_6 = Survey.create!(team: team_2)
 
 # create! categories
 
-categories = ["Personal growth", "Well being", "Collaboration", "Tools & Processes", "Enterprise culture"]
+categories = ["Personnal growth", "Well being","Tools & processes", "Collaboration", "Enterprise culture"]
 
 
 categories.each do |category_name|
   # create! categories
   category = Category.create!(name: category_name)
-  # filling the surveys with category and questions
-  Survey.all.each do |survey|
-    question = Question.create!(category: category, text: "Are you happy?", survey: survey )
-    # giving 2 responses to the questions
-    Response.create!(rating: 5, question: question, user: survey.team.users.all.sample)
-    Response.create!(rating: 4, question: question, user: survey.team.users.all.sample)
-  end
 end
 
+question_1 = Question.create(category: Category.first, text: "How deep is your love?", survey: survey_1)
+question_2 = Question.create(category: Category.second, text: "Are you sad?", survey: survey_1)
+question_3 = Question.create(category: Category.third, text: "Your manage cares of you?", survey: survey_1)
+question_4 = Question.create(category: Category.fourth, text: "I love my peers", survey: survey_1)
+question_5 = Question.create(category: Category.fifth, text: "My company is the best", survey: survey_1)
 
 
 
