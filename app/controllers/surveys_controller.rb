@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
 
   def index
-  	
+
   	@personal_growth_responses = []
   	Team.find(params[:team_id]).questions.where(category: Category.first).each { |q| @personal_growth_responses << q.responses }
   	@personal_growth = @personal_growth_responses.flatten.pluck(:rating).sum.to_f / @personal_growth_responses.flatten.pluck(:rating).size.to_f
@@ -9,7 +9,7 @@ class SurveysController < ApplicationController
   	@well_being_responses = []
   	Team.find(params[:team_id]).questions.where(category: Category.find(2)).each { |q| @well_being_responses << q.responses }
   	@well_being = @well_being_responses.flatten.pluck(:rating).sum.to_f / @well_being_responses.flatten.pluck(:rating).size.to_f
-  	
+
   	@collaboration_responses = []
   	Team.find(params[:team_id]).questions.where(category: Category.find(3)).each { |q| @collaboration_responses << q.responses }
   	@collaboration = @collaboration_responses.flatten.pluck(:rating).sum.to_f / @collaboration_responses.flatten.pluck(:rating).size.to_f
@@ -21,31 +21,35 @@ class SurveysController < ApplicationController
   	@enterprise_culture_responses = []
   	Team.find(params[:team_id]).questions.where(category: Category.find(5)).each { |q| @enterprise_culture_responses << q.responses }
   	@enterprise_culture = @enterprise_culture_responses.flatten.pluck(:rating).sum.to_f / @enterprise_culture_responses.flatten.pluck(:rating).size.to_f
-  
+
   	render 'surveys/show'
 
   end
 
   def show
 
-  	@personal_growth_ratings = [] 
-  	Survey.find(params[:id]).questions.where(category: Category.first).first.responses.each { |r| @personal_growth_ratings << r.rating }
+    @survey = Survey.find(params[:id])
+
+    @well_being_question = @survey.questions.where(category_id: 2).first
+
+  	@personal_growth_ratings = []
+  	@survey.questions.where(category: Category.first).first.responses.each { |r| @personal_growth_ratings << r.rating }
   	@personal_growth = @personal_growth_ratings.sum.to_f / @personal_growth_ratings.size.to_f
 
-  	  	@well_being_ratings = [] 
-  	Survey.find(params[:id]).questions.where(category: Category.find(2)).first.responses.each { |r| @well_being_ratings << r.rating }
+  	@well_being_ratings = []
+  	@survey.questions.where(category: Category.find(2)).first.responses.each { |r| @well_being_ratings << r.rating }
   	@well_being = @well_being_ratings.sum.to_f / @well_being_ratings.size.to_f
 
-  	  	@collaboration_ratings = [] 
-  	Survey.find(params[:id]).questions.where(category: Category.find(3)).first.responses.each { |r| @collaboration_ratings << r.rating }
+  	 @collaboration_ratings = []
+  	@survey.questions.where(category: Category.find(3)).first.responses.each { |r| @collaboration_ratings << r.rating }
   	@collaboration = @collaboration_ratings.sum.to_f / @collaboration_ratings.size.to_f
 
-  	  	@tools_ratings = [] 
-  	Survey.find(params[:id]).questions.where(category: Category.find(4)).first.responses.each { |r| @tools_ratings << r.rating }
+  	  	@tools_ratings = []
+  	@survey.questions.where(category: Category.find(4)).first.responses.each { |r| @tools_ratings << r.rating }
   	@tools = @tools_ratings.sum.to_f / @tools_ratings.size.to_f
 
-  	  	@enterprise_culture_ratings = [] 
-  	Survey.find(params[:id]).questions.where(category: Category.find(5)).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
+  	  	@enterprise_culture_ratings = []
+  	@survey.questions.where(category: Category.find(5)).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
   	@enterprise_culture = @enterprise_culture_ratings.sum.to_f / @enterprise_culture_ratings.size.to_f
 
 
