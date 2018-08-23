@@ -1,4 +1,21 @@
-<!-- the form to submit a survey -->
-<h1>Responses#new</h1>
-<p>Find me in app/views/responses/new.html.erb</p>
+<div class="container">
+  <div class="row ">
+    <div class="cols-xs-12 col-sm-4 col-sm-offset-4">
+      <%= form_tag survey_responses_path(@survey) do |f| %>
 
+        <% @questions.each_with_index do |question, index| %>
+          <% response_key = "response_#{index + 1}" %>
+
+          <div class="form-group">
+            <%= label_tag  response_key, question.text %>
+            <%= range_field response_key, :rating, in: 1..10, class: "form-control" %>
+            <!-- customise name of field for easier params -->
+            <%= hidden_field_tag "#{response_key}[question_id]", question.id  %>
+          </div>
+        <% end %>
+
+        <%= submit_tag "submit the form" %>
+      <% end %>
+    </div>
+  </div>
+</div>
