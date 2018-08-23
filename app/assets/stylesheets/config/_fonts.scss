@@ -1,5 +1,5 @@
 // Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Lato:200,300,400,700,900");
 
 // Define fonts for body and headers
 $body-font: "Lato";
@@ -7,7 +7,7 @@ $headers-font: "Lato";
 
 
 .light-font{
-
+  font-weight : 200;
 
 }
 
@@ -23,4 +23,16 @@ $headers-font: "Lato";
 
 .orange-font{
   color: #F9B002;
+}
+
+.logo {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+
+.logo:hover{
+  text-decoration:none;
+  color:#F9B002;
 }
