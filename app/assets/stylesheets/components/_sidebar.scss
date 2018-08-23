@@ -1,0 +1,52 @@
+.flex-container{
+  display: flex;
+}
+
+.left {
+  flex: 0 0 60px;
+  height: calc(100vh - 70px);
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start ;
+  align-items: center;
+  overflow: hidden;
+  background-color:#FFF;
+  border-right: solid 1px #E6E8F1;
+}
+
+.left-content-item {
+  width: 200px;
+  display: flex;
+  justify-content: flex-start ;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.center {
+  flex: 1 0 auto;
+}
+
+.left:hover {
+  flex: 0 0 250px;
+  transition-property: flex;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+/*Cubic beziers*/
+
+.right{
+  flex: 0 0 20px;
+}
+
+.padding-right {
+  padding-right: 30px;
+}
+
+.icon-size{
+  width: 50px;
+}
+
+#dash:hover{
+  background: url(./images/dash-orange.png);
+}
