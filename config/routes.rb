@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  get 'questions/show'
-  get 'teams/index'
-  get 'responses/new'
-  get 'surveys/show'
-  get 'surveys/index'
+
   devise_for :users
+
   root to: 'teams#index'
 
   resources :surveys, only: [:show] do
