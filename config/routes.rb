@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :teams, only: [ :index ] do
-    resources :surveys, only: [:index]
+    resources :surveys, only: [:index, :create]
   end
 
   resources :questions, only: [:show]
