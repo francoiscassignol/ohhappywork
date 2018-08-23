@@ -2,58 +2,61 @@ class SurveysController < ApplicationController
 
   def index
 
-    access_teams
+    @team = Team.find(params[:team_id])
 
-  	@personal_growth_responses = []
-  	Team.find(params[:team_id]).questions.where(category: Category.first).each { |q| @personal_growth_responses << q.responses }
-  	@personal_growth = @personal_growth_responses.flatten.pluck(:rating).sum.to_f / @personal_growth_responses.flatten.pluck(:rating).size.to_f
+    @personal_growth_responses = []
+    @team.questions.where(category: Category.first).each { |q| @personal_growth_responses << q.responses }
+    @personal_growth = @personal_growth_responses.flatten.pluck(:rating).sum.to_f / @personal_growth_responses.flatten.pluck(:rating).size.to_f
 
-  	@well_being_responses = []
-  	Team.find(params[:team_id]).questions.where(category: Category.where(name: "Well being")).each { |q| @well_being_responses << q.responses }
-  	@well_being = @well_being_responses.flatten.pluck(:rating).sum.to_f / @well_being_responses.flatten.pluck(:rating).size.to_f
+    @well_being_responses = []
+    @team.questions.where(category: Category.where(name: "Well being")).each { |q| @well_being_responses << q.responses }
+    @well_being = @well_being_responses.flatten.pluck(:rating).sum.to_f / @well_being_responses.flatten.pluck(:rating).size.to_f
 
-  	@collaboration_responses = []
-  	Team.find(params[:team_id]).questions.where(category: Category.where(name: "Collaboration")).each { |q| @collaboration_responses << q.responses }
-  	@collaboration = @collaboration_responses.flatten.pluck(:rating).sum.to_f / @collaboration_responses.flatten.pluck(:rating).size.to_f
+    @collaboration_responses = []
+    @team.questions.where(category: Category.where(name: "Collaboration")).each { |q| @collaboration_responses << q.responses }
+    @collaboration = @collaboration_responses.flatten.pluck(:rating).sum.to_f / @collaboration_responses.flatten.pluck(:rating).size.to_f
 
-	@tools_responses = []
-  	Team.find(params[:team_id]).questions.where(category: Category.where(name: "Tools & Processes")).each { |q| @tools_responses << q.responses }
-  	@tools = @tools_responses.flatten.pluck(:rating).sum.to_f / @tools_responses.flatten.pluck(:rating).size.to_f
+  @tools_responses = []
+    @team.questions.where(category: Category.where(name: "Tools & Processes")).each { |q| @tools_responses << q.responses }
+    @tools = @tools_responses.flatten.pluck(:rating).sum.to_f / @tools_responses.flatten.pluck(:rating).size.to_f
 
-  	@enterprise_culture_responses = []
-  	Team.find(params[:team_id]).questions.where(category: Category.where(name: "Enterprise culture")).each { |q| @enterprise_culture_responses << q.responses }
-  	@enterprise_culture = @enterprise_culture_responses.flatten.pluck(:rating).sum.to_f / @enterprise_culture_responses.flatten.pluck(:rating).size.to_f
+    @enterprise_culture_responses = []
+    @team.questions.where(category: Category.where(name: "Enterprise culture")).each { |q| @enterprise_culture_responses << q.responses }
+    @enterprise_culture = @enterprise_culture_responses.flatten.pluck(:rating).sum.to_f / @enterprise_culture_responses.flatten.pluck(:rating).size.to_f
 
-  	render 'surveys/show'
+    @teams = Team.all
+    render 'surveys/show'
 
   end
 
   def show
 
+    @team = Team.find(Survey.find(params[:id]).team_id)
+    @teams = Team.all
+
     @survey = Survey.find(params[:id])
     @well_being_question = @survey.questions.where(category: Category.where(name: "Well being")).first
 
-    access_teams
 
-  	@personal_growth_ratings = []
-  	@survey.questions.where(category: Category.first).first.responses.each { |r| @personal_growth_ratings << r.rating }
-  	@personal_growth = @personal_growth_ratings.sum.to_f / @personal_growth_ratings.size.to_f
+    @personal_growth_ratings = []
+    @survey.questions.where(category: Category.first).first.responses.each { |r| @personal_growth_ratings << r.rating }
+    @personal_growth = @personal_growth_ratings.sum.to_f / @personal_growth_ratings.size.to_f
 
-  	@well_being_ratings = []
-  	@survey.questions.where(category: Category.where(name: "Well being")).first.responses.each { |r| @well_being_ratings << r.rating }
-  	@well_being = @well_being_ratings.sum.to_f / @well_being_ratings.size.to_f
+    @well_being_ratings = []
+    @survey.questions.where(category: Category.where(name: "Well being")).first.responses.each { |r| @well_being_ratings << r.rating }
+    @well_being = @well_being_ratings.sum.to_f / @well_being_ratings.size.to_f
 
-  	@collaboration_ratings = []
-  	@survey.questions.where(category: Category.where(name: "Collaboration")).first.responses.each { |r| @collaboration_ratings << r.rating }
-  	@collaboration = @collaboration_ratings.sum.to_f / @collaboration_ratings.size.to_f
+    @collaboration_ratings = []
+    @survey.questions.where(category: Category.where(name: "Collaboration")).first.responses.each { |r| @collaboration_ratings << r.rating }
+    @collaboration = @collaboration_ratings.sum.to_f / @collaboration_ratings.size.to_f
 
-  	@tools_ratings = []
-  	@survey.questions.where(category: Category.where(name: "Tools & Processes")).first.responses.each { |r| @tools_ratings << r.rating }
-  	@tools = @tools_ratings.sum.to_f / @tools_ratings.size.to_f
+    @tools_ratings = []
+    @survey.questions.where(category: Category.where(name: "Tools & Processes")).first.responses.each { |r| @tools_ratings << r.rating }
+    @tools = @tools_ratings.sum.to_f / @tools_ratings.size.to_f
 
-  	@enterprise_culture_ratings = []
-  	@survey.questions.where(category: Category.where(name: "Enterprise culture")).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
-  	@enterprise_culture = @enterprise_culture_ratings.sum.to_f / @enterprise_culture_ratings.size.to_f
+    @enterprise_culture_ratings = []
+    @survey.questions.where(category: Category.where(name: "Enterprise culture")).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
+    @enterprise_culture = @enterprise_culture_ratings.sum.to_f / @enterprise_culture_ratings.size.to_f
 
   end
 
@@ -66,7 +69,7 @@ class SurveysController < ApplicationController
     @tools_question_text = ["I  have access to the resources needed to do my work properly","The processes and tools provided are relevant  and helpful to accomplish my work","I am satisfied with the level of comfort and safety in my physical workplace"]
     @enterprise_culture_question_text = ["Leaders demonstrate  a vision that motivates me","I understand how my work contributes to the goals of my organization","I consider myself an ambassador for my organization"]
 
-    @survey = Survey.create!(team: Team.find(params[:team_id]))
+    @survey = Survey.create!(team: @team)
     Question.create!(category: Category.first, text: @personal_growth_question_text.sample, survey: @survey )
     Question.create!(category: Category.find[2], text: @well_being_question_text.sample, survey: @survey )
     Question.create!(category: Category.find[3], text: @collaboration_question_text.sample, survey: @survey )
@@ -74,12 +77,6 @@ class SurveysController < ApplicationController
     Question.create!(category: Category.find[5], text: @enterprise_culture_question_text.sample, survey: @survey )
     end
 end
-
-
-def access_teams
-  @teams = Team.all
-end
-
 
 
 # categories.each do |category_name|
