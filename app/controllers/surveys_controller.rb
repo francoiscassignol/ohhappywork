@@ -7,19 +7,19 @@ class SurveysController < ApplicationController
   	@personal_growth = @personal_growth_responses.flatten.pluck(:rating).sum.to_f / @personal_growth_responses.flatten.pluck(:rating).size.to_f
 
   	@well_being_responses = []
-  	Team.find(params[:team_id]).questions.where(category: Category.first).each { |q| @well_being_responses << q.responses }
+  	Team.find(params[:team_id]).questions.where(category: Category.find(2)).each { |q| @well_being_responses << q.responses }
   	@well_being = @well_being_responses.flatten.pluck(:rating).sum.to_f / @well_being_responses.flatten.pluck(:rating).size.to_f
   	
   	@collaboration_responses = []
-  	Team.find(params[:team_id]).questions.where(category: Category.first).each { |q| @collaboration_responses << q.responses }
+  	Team.find(params[:team_id]).questions.where(category: Category.find(3)).each { |q| @collaboration_responses << q.responses }
   	@collaboration = @collaboration_responses.flatten.pluck(:rating).sum.to_f / @collaboration_responses.flatten.pluck(:rating).size.to_f
 
 	@tools_responses = []
-  	Team.find(params[:team_id]).questions.where(category: Category.first).each { |q| @tools_responses << q.responses }
+  	Team.find(params[:team_id]).questions.where(category: Category.find(4)).each { |q| @tools_responses << q.responses }
   	@tools = @tools_responses.flatten.pluck(:rating).sum.to_f / @tools_responses.flatten.pluck(:rating).size.to_f
 
   	@enterprise_culture_responses = []
-  	Team.find(params[:team_id]).questions.where(category: Category.first).each { |q| @enterprise_culture_responses << q.responses }
+  	Team.find(params[:team_id]).questions.where(category: Category.find(5)).each { |q| @enterprise_culture_responses << q.responses }
   	@enterprise_culture = @enterprise_culture_responses.flatten.pluck(:rating).sum.to_f / @enterprise_culture_responses.flatten.pluck(:rating).size.to_f
   
   	render 'surveys/show'
