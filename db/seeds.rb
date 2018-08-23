@@ -51,7 +51,6 @@ categories.each do |category_name|
  end
 end
 
------------------ Exemple ---------------------------------------------------------
 # question_1 = Question.create(category: Category.first, text: "How deep is your love?", survey: survey_1)
 # question_2 = Question.create(category: Category.second, text: "Are you sad?", survey: survey_1)
 # question_3 = Question.create(category: Category.third, text: "Your manage cares of you?", survey: survey_1)
