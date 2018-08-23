@@ -2,6 +2,8 @@ class SurveysController < ApplicationController
 
   def index
 
+    access_teams
+
   	@personal_growth_responses = []
   	Team.find(params[:team_id]).questions.where(category: Category.first).each { |q| @personal_growth_responses << q.responses }
   	@personal_growth = @personal_growth_responses.flatten.pluck(:rating).sum.to_f / @personal_growth_responses.flatten.pluck(:rating).size.to_f
@@ -27,6 +29,8 @@ class SurveysController < ApplicationController
   end
 
   def show
+
+    access_teams
 
   	@personal_growth_ratings = []
   	Survey.find(params[:id]).questions.where(category: Category.first).first.responses.each { |r| @personal_growth_ratings << r.rating }
@@ -68,6 +72,10 @@ class SurveysController < ApplicationController
     end
 end
 
+
+def access_teams
+  @teams = Team.all
+end
 
 
 

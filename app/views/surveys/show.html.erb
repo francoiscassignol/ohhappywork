@@ -16,7 +16,6 @@
         <%= image_tag "profile-default", class: "padding-right icon-size", id: "accout" %>
         <p>Account settings</p>
       </div>
-
     </div>
   </div>
 
@@ -24,16 +23,19 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <h1 class="orange-font light-font"> Team's pulse dashboard</h1>
+          <% @teams.each do |team| %>
+            <h1 class="orange-font light-font"><%= team.name%>'s pulse dashboard</h1>
+          <% end %>
+
         </div>
         <div class="col-md-4">
           <!--%=# link_to "Select your team", "#", class: "button button-white left-margin" %>-->
           <div class="dropdown right">
             <button class="dropbtn">Select your team <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
             <div class="dropdown-content">
-              <a class="light-grey-text" href="#">Team 1</a>
-              <a class="light-grey-text" href="#">Team 2</a>
-              <a class="light-grey-text" href="#">Team 3</a>
+              <% @teams.each do |team| %>
+                <%= link_to "#{team.name }", team_surveys_path(team) %>
+              <% end %>
             </div>
           </div>
         </div>
