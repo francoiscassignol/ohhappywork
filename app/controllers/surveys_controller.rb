@@ -30,26 +30,29 @@ class SurveysController < ApplicationController
 
   def show
 
+    @survey = Survey.find(params[:id])
+    @well_being_question = @survey.questions.where(category: Category.where(name: "Well being")).first
+
     access_teams
 
   	@personal_growth_ratings = []
-  	Survey.find(params[:id]).questions.where(category: Category.first).first.responses.each { |r| @personal_growth_ratings << r.rating }
+  	@survey.questions.where(category: Category.first).first.responses.each { |r| @personal_growth_ratings << r.rating }
   	@personal_growth = @personal_growth_ratings.sum.to_f / @personal_growth_ratings.size.to_f
 
   	@well_being_ratings = []
-  	Survey.find(params[:id]).questions.where(category: Category.where(name: "Well being")).first.responses.each { |r| @well_being_ratings << r.rating }
+  	@survey.questions.where(category: Category.where(name: "Well being")).first.responses.each { |r| @well_being_ratings << r.rating }
   	@well_being = @well_being_ratings.sum.to_f / @well_being_ratings.size.to_f
 
   	@collaboration_ratings = []
-  	Survey.find(params[:id]).questions.where(category: Category.where(name: "Collaboration")).first.responses.each { |r| @collaboration_ratings << r.rating }
+  	@survey.questions.where(category: Category.where(name: "Collaboration")).first.responses.each { |r| @collaboration_ratings << r.rating }
   	@collaboration = @collaboration_ratings.sum.to_f / @collaboration_ratings.size.to_f
 
   	@tools_ratings = []
-  	Survey.find(params[:id]).questions.where(category: Category.where(name: "Tools & Processes")).first.responses.each { |r| @tools_ratings << r.rating }
+  	@survey.questions.where(category: Category.where(name: "Tools & Processes")).first.responses.each { |r| @tools_ratings << r.rating }
   	@tools = @tools_ratings.sum.to_f / @tools_ratings.size.to_f
 
   	@enterprise_culture_ratings = []
-  	Survey.find(params[:id]).questions.where(category: Category.where(name: "Enterprise culture")).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
+  	@survey.questions.where(category: Category.where(name: "Enterprise culture")).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
   	@enterprise_culture = @enterprise_culture_ratings.sum.to_f / @enterprise_culture_ratings.size.to_f
 
   end
@@ -91,6 +94,5 @@ end
 #   end
 # end
 
-
-
+    #<ActiveRecord::Relation [#<Category id: 1, name: "Personal growth", created_at: "2018-08-23 12:12:35", updated_at: "2018-08-23 12:12:35">, #<Category id: 2, name: "Well being", created_at: "2018-08-23 12:12:36", updated_at: "2018-08-23 12:12:36">, #<Category id: 3, name: "Collaboration", created_at: "2018-08-23 12:12:36", updated_at: "2018-08-23 12:12:36">, #<Category id: 4, name: "Tools & Processes", created_at: "2018-08-23 12:12:36", updated_at: "2018-08-23 12:12:36">, #<Category id: 5, name: "Enterprise culture", created_at: "2018-08-23 12:12:36", updated_at: "2018-08-23 12:12:36">]>
 
