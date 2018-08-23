@@ -28,6 +28,27 @@ class SurveysController < ApplicationController
 
   def show
 
+  	@personal_growth_ratings = [] 
+  	Survey.find(params[:id]).questions.where(category: Category.first).first.responses.each { |r| @personal_growth_ratings << r.rating }
+  	@personal_growth = @personal_growth_ratings.sum.to_f / @personal_growth_ratings.size.to_f
+
+  	  	@well_being_ratings = [] 
+  	Survey.find(params[:id]).questions.where(category: Category.find(2)).first.responses.each { |r| @well_being_ratings << r.rating }
+  	@well_being = @well_being_ratings.sum.to_f / @well_being_ratings.size.to_f
+
+  	  	@collaboration_ratings = [] 
+  	Survey.find(params[:id]).questions.where(category: Category.find(3)).first.responses.each { |r| @collaboration_ratings << r.rating }
+  	@collaboration = @collaboration_ratings.sum.to_f / @collaboration_ratings.size.to_f
+
+  	  	@tools_ratings = [] 
+  	Survey.find(params[:id]).questions.where(category: Category.find(4)).first.responses.each { |r| @tools_ratings << r.rating }
+  	@tools = @tools_ratings.sum.to_f / @tools_ratings.size.to_f
+
+  	  	@enterprise_culture_ratings = [] 
+  	Survey.find(params[:id]).questions.where(category: Category.find(5)).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
+  	@enterprise_culture = @enterprise_culture_ratings.sum.to_f / @enterprise_culture_ratings.size.to_f
+
+
   end
 
   def create
