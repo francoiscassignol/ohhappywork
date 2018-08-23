@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'questions/show'
-  get 'teams/index'
-  get 'responses/new'
-  get 'surveys/show'
-  get 'surveys/index'
+
+
   devise_for :users
-  root to: 'pages#home'
+
+  root to: 'teams#index'
+
+  get "/pages", to: "pages#show", as: :page_show
 
   resources :surveys, only: [:show] do
     resources :responses, only: [:new, :create]
