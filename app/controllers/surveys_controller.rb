@@ -36,15 +36,19 @@ class SurveysController < ApplicationController
 
     @survey = Survey.find(params[:id])
     @well_being_question = @survey.questions.where(category: Category.where(name: "Well being")).first
+    @personal_growth_question = @survey.questions.where(category: Category.where(name: "Personal growth")).first
+    @collaboration_question = @survey.questions.where(category: Category.where(name: "Collaboration")).first
+    @tool_question = @survey.questions.where(category: Category.where(name: "Tools & Processes")).first
+    @enterprise_culture_question = @survey.questions.where(category: Category.where(name: "Enterprise culture")).first
 
+    @well_being_ratings = []
+    @survey.questions.where(category: Category.where(name: "Well being")).first.responses.each { |r| @well_being_ratings << r.rating }
+    @well_being = @well_being_ratings.sum.to_f / @well_being_ratings.size.to_f
 
     @personal_growth_ratings = []
     @survey.questions.where(category: Category.first).first.responses.each { |r| @personal_growth_ratings << r.rating }
     @personal_growth = @personal_growth_ratings.sum.to_f / @personal_growth_ratings.size.to_f
 
-    @well_being_ratings = []
-    @survey.questions.where(category: Category.where(name: "Well being")).first.responses.each { |r| @well_being_ratings << r.rating }
-    @well_being = @well_being_ratings.sum.to_f / @well_being_ratings.size.to_f
 
     @collaboration_ratings = []
     @survey.questions.where(category: Category.where(name: "Collaboration")).first.responses.each { |r| @collaboration_ratings << r.rating }
