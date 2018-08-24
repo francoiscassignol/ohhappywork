@@ -29,7 +29,6 @@ class SurveysController < ApplicationController
   end
 
   def show
-
     @team = Team.find(Survey.find(params[:id]).team_id)
     @teams = Team.all
 
