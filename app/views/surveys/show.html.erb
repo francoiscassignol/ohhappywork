@@ -31,7 +31,9 @@
           <!-- render title -->
           <% if @team %>
             <h1 class="orange-font light-font"><%= @team.name %>'s pulse dashboard</h1>
-            <p class="orange-font">Survey of <%= @survey.created_at.strftime("%m/%d/%Y") %></p>
+            <% if @survey %>
+              <p class="orange-font">Survey of <%= @survey.created_at.strftime("%m/%d/%Y") %></p>
+            <% end %>
           <% end %>
 
         </div>

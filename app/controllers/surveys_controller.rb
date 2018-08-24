@@ -77,7 +77,7 @@ class SurveysController < ApplicationController
     Question.create!(category: Category.find[3], text: @collaboration_question_text.sample, survey: @survey )
     Question.create!(category: Category.find[4], text: @tools_question_text.sample, survey: @survey )
     Question.create!(category: Category.find[5], text: @enterprise_culture_question_text.sample, survey: @survey )
-    end
+  end
 end
 
 
