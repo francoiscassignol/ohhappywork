@@ -6,9 +6,9 @@
         <% @questions.each_with_index do |question, index| %>
           <% response_key = "response_#{index + 1}" %>
 
-          <div class="form-group">
+          <div class="form-group slidecontainer">
             <%= label_tag  response_key, question.text %>
-            <%= range_field response_key, :rating, in: 1..10, class: "form-control" %>
+            <%= range_field response_key, :rating, in: 0..5, class: "form-control slider" %>
             <!-- customise name of field for easier params -->
             <%= hidden_field_tag "#{response_key}[question_id]", question.id  %>
           </div>
