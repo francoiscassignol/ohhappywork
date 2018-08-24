@@ -4,15 +4,15 @@
   <div class="frame">
     <h4 class="light-font text-center"> Weather of the team </h4>
     <% if rating <= 1  %>
-      <p class="picto-inline"><%= image_tag "thunder.svg", class: "big-picto" %></p>
+      <p class="picto-inline"><%= image_tag asset_path("thunder.svg"), class: "big-picto" %></p>
     <% elsif rating > 1 && rating <= 2 %>
-      <p class="picto-inline"><%= image_tag "rain.svg", class: "big-picto" %></p>
+      <p class="picto-inline"><%= image_tag asset_path("rain.svg"), class: "big-picto" %></p>
     <% elsif rating > 2 && rating <= 3 %>
-      <p class="picto-inline"><%= image_tag "cloudy.svg", class: "big-picto" %></p>
+      <p class="picto-inline"><%= image_tag asset_path("cloudy.svg"), class: "big-picto" %></p>
     <% elsif rating > 3 && rating <= 4 %>
-      <p class="picto-inline"><%= image_tag "sunnish.svg", class: "big-picto" %></p>
+      <p class="picto-inline"><%= image_tag asset_path("sunnish.svg"), class: "big-picto" %></p>
     <% elsif rating > 4 %>
-      <p class="picto-inline"><%= image_tag "sunny.svg", class: "big-picto" %></p>
+      <p class="picto-inline"><%= image_tag asset_path("sunny.svg"), class: "big-picto" %></p>
       <% else rating = nil %>
       <p class="light-font light-grey-text"> No rating yet!</p>
     <% end %>
@@ -28,11 +28,11 @@
 
 
     <p class="picto-inline">
-    <%= image_tag "thunder.svg", class: "picto" %>
-    <%= image_tag "rain.svg", class: "picto" %>
-    <%= image_tag "cloudy.svg", class: "picto" %>
-    <%= image_tag "sunnish.svg", class: "picto" %>
-    <%= image_tag "sunny.svg", class: "picto" %>
+    <%= image_tag asset_path("thunder.svg"), class: "picto" %>
+    <%= image_tag asset_path("rain.svg"), class: "picto" %>
+    <%= image_tag asset_path("cloudy.svg"), class: "picto" %>
+    <%= image_tag asset_path("sunnish.svg"), class: "picto" %>
+    <%= image_tag asset_path("sunny.svg"), class: "picto" %>
     </p>
   </div>
 </div>
