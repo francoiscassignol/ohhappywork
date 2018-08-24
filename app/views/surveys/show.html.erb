@@ -23,6 +23,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
+
+          <!-- render title -->
             <h1 class="orange-font light-font"><%= @team.name %>'s pulse dashboard</h1>
 
         </div>
@@ -30,6 +32,7 @@
           <div class="dropdown right">
             <button class="dropbtn">Select your team <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
             <div class="dropdown-content">
+              <!-- render dropdown -->
               <% @teams.each do |team| %>
                 <%= link_to "#{team.name }", team_surveys_path(team) %>
               <% end %>
@@ -57,47 +60,43 @@
         </div>
 
         <div class="col-md-4">
-          <div class="card">
-            <h4>Personal growth</h4>
-            <p class="light-grey-text">My team feel recognized and supported in their career path</p>
-            <div class="frame">
-              <h4 class="light-font text-center"> Fullfilment gauge </h4>
-              <p><%= @personal_growth %></p>
-            </div>
-          </div>
+          <% if @personal_growth_question %>
+            <%= link_to question_path(@personal_growth_question) do %>
+              <%= render "personal_growth_card" %>
+            <% end %>
+          <% else %>
+            <%= render "personal_growth_card" %>
+          <% end %>
         </div>
 
         <div class="col-md-4">
-          <div class="card">
-            <h4>Collaboration</h4>
-            <p class="light-grey-text">My team evolves in a collaborative environment </p>
-            <div class="frame">
-              <h4 class="light-font text-center"> Team's state </h4>
-              <p><%= @collaboration %></p>
-            </div>
-          </div>
+          <% if @collaboration_question %>
+            <%= link_to question_path(@collaboration_question) do %>
+              <%= render "collaboration_card" %>
+            <% end %>
+          <% else %>
+            <%= render "collaboration_card" %>
+          <% end %>
         </div>
 
         <div class="col-md-4">
-          <div class="card">
-            <h4>Tools & Processes</h4>
-            <p class="light-grey-text">My team has access to everything they need</p>
-            <div class="frame">
-              <h4 class="light-font text-center"> Team's effectiveness </h4>
-              <p><%= @tools %></p>
-            </div>
-          </div>
+          <% if @tool_question %>
+            <%= link_to question_path(@tool_question) do %>
+              <%= render "tool_card" %>
+            <% end %>
+          <% else %>
+            <%= render "tool_card" %>
+          <% end %>
         </div>
 
         <div class="col-md-4">
-          <div class="card">
-            <h4>Enterprise culture</h4>
-            <p class="light-grey-text">Engagement, purpose, strategy</p>
-            <div class="frame">
-              <h5 class="light-font text-center"> Team's rating </h5>
-              <p><%= @enterprise_culture %></p>
-            </div>
-          </div>
+          <% if @enterprise_culture_question %>
+            <%= link_to question_path(@enterprise_culture_question) do %>
+              <%= render "enterprise_culture_card" %>
+            <% end %>
+          <% else %>
+            <%= render "enterprise_culture_card" %>
+          <% end %>
         </div>
 
 

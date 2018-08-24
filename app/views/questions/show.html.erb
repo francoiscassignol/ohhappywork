@@ -3,26 +3,29 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= link_to "Back", team_surveys_path(current_user.team_id), class: "light-grey-text" %>
+      <%#= link_to "Back", team_surveys_path(current_user.team_id), class: "light-grey-text" %>
       <h1 class="orange-font"> Recap</h1>
     </div>
   </div>
 
-
   <div class="row">
     <div class="col-md-4">
-      <div class="card">
-        <h4><%= @question.category.name %></h4>
-      </div>
+        <%= render 'well_being_card' %>
     </div>
     <div class="col-md-8">
       <div class="card card-md">
-        <h4> ****Question review*** </h4>
+        <h4 class="text-center "> Question review of the survey #<%= @question.survey_id %> </h4>
+        <br><br><br><br>
+        <p class="text-center light-grey-text big-font">
+          "<%= @question.text %>"
+        </p>
+
       </div>
     </div>
     <div class="col-md-12">
       <div class="card card-long">
-        <h4> ***Tool Box*** </h4>
+        <h4 class="orange-font light-font">Congratulations, your team's well being is <strong>good!</strong></h4>
+        <p class="light-grey-text">To go further, you can totally do some lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
       </div>
     </div>
   </div>

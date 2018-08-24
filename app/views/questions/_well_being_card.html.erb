@@ -3,17 +3,17 @@
   <p class="light-grey-text">My team has a good work-life balance</p>
   <div class="frame">
     <h4 class="light-font text-center"> Weather of the team </h4>
-    <% if @well_being <= 1  %>
+    <% if @rating <= 1  %>
       <p class="picto-inline"><%= image_tag "thunder.svg", class: "big-picto" %></p>
-    <% elsif @well_being > 1 && @well_being <= 2 %>
+    <% elsif @rating > 1 && @rating <= 2 %>
       <p class="picto-inline"><%= image_tag "rain.svg", class: "big-picto" %></p>
-    <% elsif @well_being > 2 && @well_being <= 3 %>
+    <% elsif @rating > 2 && @rating <= 3 %>
       <p class="picto-inline"><%= image_tag "cloudy.svg", class: "big-picto" %></p>
-    <% elsif @well_being > 3 && @well_being <= 4 %>
+    <% elsif @rating > 3 && @rating <= 4 %>
       <p class="picto-inline"><%= image_tag "sunnish.svg", class: "big-picto" %></p>
-    <% elsif @well_being > 4 %>
+    <% elsif @rating > 4 %>
       <p class="picto-inline"><%= image_tag "sunny.svg", class: "big-picto" %></p>
-      <% else @well_being = nil %>
+      <% else @rating = nil %>
       <p class="light-font light-grey-text"> No rating yet!</p>
     <% end %>
 

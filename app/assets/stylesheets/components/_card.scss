@@ -47,3 +47,25 @@
   width:1090px;
   height:200px;
 }
+
+
+.picto {
+  height: 25px;
+}
+
+
+.big-picto{
+  height: 55px;
+}
+
+.picto-inline{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  bottom: 0;
+}
+
+
+.small-font{
+  font-size: 12px;
+}
