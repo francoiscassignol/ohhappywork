@@ -25,7 +25,9 @@
         <div class="col-md-8">
 
           <!-- render title -->
+          <% if @team %>
             <h1 class="orange-font light-font"><%= @team.name %>'s pulse dashboard</h1>
+          <% end %>
 
         </div>
         <div class="col-md-4">
@@ -52,50 +54,50 @@
         <div class="col-md-4">
           <% if @well_being_question %>
             <%= link_to question_path(@well_being_question) do %>
-              <%= render "well_being_card" %>
+              <%= render "surveys/well_being_card" %>
             <% end %>
           <% else %>
-            <%= render "well_being_card" %>
+            <%= render "surveys/well_being_card" %>
           <% end %>
         </div>
 
         <div class="col-md-4">
           <% if @personal_growth_question %>
             <%= link_to question_path(@personal_growth_question) do %>
-              <%= render "personal_growth_card" %>
+              <%= render "surveys/personal_growth_card" %>
             <% end %>
           <% else %>
-            <%= render "personal_growth_card" %>
+            <%= render "surveys/personal_growth_card" %>
           <% end %>
         </div>
 
         <div class="col-md-4">
           <% if @collaboration_question %>
             <%= link_to question_path(@collaboration_question) do %>
-              <%= render "collaboration_card" %>
+              <%= render "surveys/collaboration_card" %>
             <% end %>
           <% else %>
-            <%= render "collaboration_card" %>
+            <%= render "surveys/collaboration_card" %>
           <% end %>
         </div>
 
         <div class="col-md-4">
           <% if @tool_question %>
             <%= link_to question_path(@tool_question) do %>
-              <%= render "tool_card" %>
+              <%= render "surveys/tool_card" %>
             <% end %>
           <% else %>
-            <%= render "tool_card" %>
+            <%= render "surveys/tool_card" %>
           <% end %>
         </div>
 
         <div class="col-md-4">
           <% if @enterprise_culture_question %>
             <%= link_to question_path(@enterprise_culture_question) do %>
-              <%= render "enterprise_culture_card" %>
+              <%= render "surveys/enterprise_culture_card" %>
             <% end %>
           <% else %>
-            <%= render "enterprise_culture_card" %>
+            <%= render "surveys/enterprise_culture_card" %>
           <% end %>
         </div>
 
