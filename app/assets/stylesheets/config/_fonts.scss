@@ -12,7 +12,7 @@ $headers-font: "Lato";
 }
 
 .bold-font{
-
+  font-weight: 700;
 }
 
 .light-grey-text {
@@ -35,4 +35,13 @@ $headers-font: "Lato";
 .logo:hover{
   text-decoration:none ;
   color:#F9B002;
+}
+
+
+.giant-font{
+  font-size: 70px;
+}
+
+.regular-font{
+  font-size: 30px;
 }

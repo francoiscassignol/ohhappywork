@@ -23,6 +23,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
+
+          <!-- render title -->
             <h1 class="orange-font light-font"><%= @team.name %>'s pulse dashboard</h1>
 
         </div>
@@ -30,6 +32,7 @@
           <div class="dropdown right">
             <button class="dropbtn">Select your team <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
             <div class="dropdown-content">
+              <!-- render dropdown -->
               <% @teams.each do |team| %>
                 <%= link_to "#{team.name }", team_surveys_path(team) %>
               <% end %>
@@ -57,25 +60,11 @@
         </div>
 
         <div class="col-md-4">
-          <div class="card">
-            <h4>Personal growth</h4>
-            <p class="light-grey-text">My team feel recognized and supported in their career path</p>
-            <div class="frame">
-              <h4 class="light-font text-center"> Fullfilment gauge </h4>
-              <p><%= @personal_growth %></p>
-            </div>
-          </div>
+          <%= render "personal_growth_card" %>
         </div>
 
         <div class="col-md-4">
-          <div class="card">
-            <h4>Collaboration</h4>
-            <p class="light-grey-text">My team evolves in a collaborative environment </p>
-            <div class="frame">
-              <h4 class="light-font text-center"> Team's state </h4>
-              <p><%= @collaboration %></p>
-            </div>
-          </div>
+          <%= render "collaboration_card" %>
         </div>
 
         <div class="col-md-4">
@@ -95,7 +84,7 @@
             <p class="light-grey-text">Engagement, purpose, strategy</p>
             <div class="frame">
               <h5 class="light-font text-center"> Team's rating </h5>
-              <p><%= @enterprise_culture %></p>
+              <p class="text-center giant-font bold-font orange-font"><%= @enterprise_culture %><span class="orange-font bold-font regular-font">/5</span></p>
             </div>
           </div>
         </div>
