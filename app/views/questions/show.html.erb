@@ -10,8 +10,9 @@
 
   <div class="row">
     <div class="col-md-4">
-        <%= render 'well_being_card' %>
+        <%= render "shared/cards/#{@type}_card", rating: @rating %>
     </div>
+
     <div class="col-md-8">
       <div class="card card-md">
         <h4 class="text-center "> Question review of the survey #<%= @question.survey_id %> </h4>

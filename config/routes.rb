@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: 'teams#index'
+  root to: 'pages#home'
 
   get "/pages", to: "pages#show", as: :page_show
 
