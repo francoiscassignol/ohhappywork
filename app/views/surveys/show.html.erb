@@ -25,7 +25,9 @@
         <div class="col-md-8">
 
           <!-- render title -->
+          <% if @team %>
             <h1 class="orange-font light-font"><%= @team.name %>'s pulse dashboard</h1>
+          <% end %>
 
         </div>
         <div class="col-md-4">
@@ -55,7 +57,7 @@
               <%= render "shared/cards/well_being_card", rating: @well_being %>
             <% end %>
           <% else %>
-            <%= render "shared/cards/well_being_card", rating: @well_being %>
+              <%= render "shared/cards/well_being_card", rating: @well_being %>
           <% end %>
         </div>
 
@@ -65,7 +67,7 @@
               <%= render "shared/cards/personal_growth_card", rating: @personal_growth %>
             <% end %>
           <% else %>
-            <%= render "shared/cards/personal_growth_card", rating: @personal_growth %>
+              <%= render "shared/cards/personal_growth_card", rating: @personal_growth %>
           <% end %>
         </div>
 
@@ -75,7 +77,7 @@
               <%= render "shared/cards/collaboration_card", rating: @collaboration %>
             <% end %>
           <% else %>
-            <%= render "shared/cards/collaboration_card", rating: @collaboration %>
+              <%= render "shared/cards/collaboration_card", rating: @collaboration %>
           <% end %>
         </div>
 
@@ -85,7 +87,7 @@
               <%= render "shared/cards/tools_and_processes_card", rating: @tools %>
             <% end %>
           <% else %>
-            <%= render "shared/cards/tools_and_processes_card", rating: @tools  %>
+              <%= render "shared/cards/tools_and_processes_card", rating: @tools  %>
           <% end %>
         </div>
 
@@ -95,7 +97,7 @@
               <%= render "shared/cards/enterprise_culture_card", rating: @enterprise_culture %>
             <% end %>
           <% else %>
-            <%= render "shared/cards/enterprise_culture_card", rating: @enterprise_culture %>
+              <%= render "shared/cards/enterprise_culture_card", rating: @enterprise_culture %>
           <% end %>
         </div>
 
