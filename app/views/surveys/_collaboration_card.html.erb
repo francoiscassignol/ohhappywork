@@ -1,0 +1,40 @@
+<div class="card">
+  <h4>Collaboration</h4>
+  <p class="light-grey-text">My team evolves in a collaborative environment </p>
+  <div class="frame">
+    <h4 class="light-font text-center"> Team's state </h4>
+  <% if @collaboration <= 1  %>
+    <p class="text-center light-font light-grey-text">Enthusiastic</p>
+    <p class="text-center light-font light-grey-text">Cooperative</p>
+    <p class="text-center light-font light-grey-text">Neutral</p>
+    <p class="text-center light-font light-grey-text">Difficult</p>
+    <p class="text-center orange-font bold-font">DISRUPTIVE</p>
+  <% elsif @collaboration > 1 && @collaboration <= 2 %>
+    <p class="text-center light-font light-grey-text">Enthusiastic</p>
+    <p class="text-center light-font light-grey-text">Cooperative</p>
+    <p class="text-center light-font light-grey-text">Neutral</p>
+    <p class="text-center orange-font bold-font">DIFFICULT</p>
+    <p class="text-center light-font light-grey-text">Disruptive</p>
+  <% elsif @collaboration > 2 && @collaboration <= 3 %>
+    <p class="text-center light-font light-grey-text">Enthusiastic</p>
+    <p class="text-center light-font light-grey-text">Cooperative</p>
+    <p class="text-center orange-font bold-font">NEUTRAL</p>
+    <p class="text-center light-font light-grey-text">Difficult</p>
+    <p class="text-center light-font light-grey-text">Disruptive</p>
+  <% elsif @collaboration > 3 && @collaboration <= 4 %>
+    <p class="text-center light-font light-grey-text">Enthusiastic</p>
+    <p class="text-center orange-font bold-font">COOPERATIVE</p>
+    <p class="text-center light-font light-grey-text">Neutral</p>
+    <p class="text-center light-font light-grey-text">Difficult</p>
+    <p class="text-center light-font light-grey-text">Disruptive</p>
+  <% elsif @collaboration > 4 %>
+    <p class="text-center orange-font bold-font">ENTHUSIASTIC</p>
+    <p class="text-center light-font light-grey-text">Cooperative</p>
+    <p class="text-center light-font light-grey-text">Neutral</p>
+    <p class="text-center light-font light-grey-text">Difficult</p>
+    <p class="text-center light-font light-grey-text">Disruptive</p>
+  <% else @collaboration = nil %>
+   <p class="light-font light-grey-text"> No rating yet!</p>
+  <% end %>
+  </div>
+</div>
