@@ -1,0 +1,38 @@
+<div class="card">
+  <h4>Well being</h4>
+  <p class="light-grey-text">My team has a good work-life balance</p>
+  <div class="frame">
+    <h4 class="light-font text-center"> Weather of the team </h4>
+    <% if @rating <= 1  %>
+      <p class="picto-inline"><%= image_tag "thunder.svg", class: "big-picto" %></p>
+    <% elsif @rating > 1 && @rating <= 2 %>
+      <p class="picto-inline"><%= image_tag "rain.svg", class: "big-picto" %></p>
+    <% elsif @rating > 2 && @rating <= 3 %>
+      <p class="picto-inline"><%= image_tag "cloudy.svg", class: "big-picto" %></p>
+    <% elsif @rating > 3 && @rating <= 4 %>
+      <p class="picto-inline"><%= image_tag "sunnish.svg", class: "big-picto" %></p>
+    <% elsif @rating > 4 %>
+      <p class="picto-inline"><%= image_tag "sunny.svg", class: "big-picto" %></p>
+      <% else @rating = nil %>
+      <p class="light-font light-grey-text"> No rating yet!</p>
+    <% end %>
+
+    <p class="picto-inline">
+      <span class="light-font light-grey-text small-font">Mediocre</span>
+      <span class="light-font light-grey-text small-font">Poor</span>
+      <span class="light-font light-grey-text small-font">Fair</span>
+      <span class="light-font light-grey-text small-font">Good</span>
+      <span class="light-font light-grey-text small-font">Excellent</span>
+
+    </p>
+
+
+    <p class="picto-inline">
+    <%= image_tag "thunder.svg", class: "picto" %>
+    <%= image_tag "rain.svg", class: "picto" %>
+    <%= image_tag "cloudy.svg", class: "picto" %>
+    <%= image_tag "sunnish.svg", class: "picto" %>
+    <%= image_tag "sunny.svg", class: "picto" %>
+    </p>
+  </div>
+</div>

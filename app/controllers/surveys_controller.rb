@@ -16,7 +16,7 @@ class SurveysController < ApplicationController
     @team.questions.where(category: Category.where(name: "Collaboration")).each { |q| @collaboration_responses << q.responses }
     @collaboration = @collaboration_responses.flatten.pluck(:rating).sum.to_f / @collaboration_responses.flatten.pluck(:rating).size.to_f
 
-  @tools_responses = []
+    @tools_responses = []
     @team.questions.where(category: Category.where(name: "Tools & Processes")).each { |q| @tools_responses << q.responses }
     @tools = @tools_responses.flatten.pluck(:rating).sum.to_f / @tools_responses.flatten.pluck(:rating).size.to_f
 
