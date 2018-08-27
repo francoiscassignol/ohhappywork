@@ -11,7 +11,7 @@
       <!-- Links when logged in -->
      <!-- <a class="button button-purple" href="#">Launch a survey <span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>-->
      <% if params[:team_id]%>
-     <%= link_to "Launch a survey", team_surveys_path(params[:team_id]), method: :post, remote: true %>
+     <%= link_to "Launch a survey", team_surveys_path(params[:team_id]), method: :post, remote: true, class: "button button-purple" %>
      <% end %>
 
       <!-- Avatar with dropdown menu -->
