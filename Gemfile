@@ -16,6 +16,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'jquery-rails'
+gem 'rails-assets-jquery-debounce', source: 'https://rails-assets.org'
 gem 'letter_opener', group: :development
 
 group :development do
