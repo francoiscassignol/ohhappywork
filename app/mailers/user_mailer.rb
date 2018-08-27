@@ -8,9 +8,9 @@ class UserMailer < ApplicationMailer
   def survey(user, survey)
   	@user = user
     @survey = survey
-    @greeting = "yoooooààààààààà"
+    
 
-    mail to: @user.email, subject: "Salut #{@user.first_name}, la formiche mamen ?"
+    mail to: @user.email, subject: "Hi #{@user.first_name}, your manager need you !"
   end
 
   #  def survey
