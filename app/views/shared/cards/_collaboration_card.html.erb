@@ -1,0 +1,40 @@
+<div class="card">
+  <h4>Collaboration</h4>
+  <p class="light-grey-text">communication, support & transparency indicator </p>
+  <div class="frame">
+    <h4 class="light-font text-center"> My team's state is </h4>
+  <% if rating <= 1  %>
+    <p class="text-center light-font light-grey-text">Enthusiastic</p>
+    <p class="text-center light-font light-grey-text">Cooperative</p>
+    <p class="text-center light-font light-grey-text">Neutral</p>
+    <p class="text-center light-font light-grey-text">Difficult</p>
+    <p class="text-center orange-font bold-font">DISRUPTIVE</p>
+  <% elsif rating > 1 && rating <= 2 %>
+    <p class="text-center light-font light-grey-text">Enthusiastic</p>
+    <p class="text-center light-font light-grey-text">Cooperative</p>
+    <p class="text-center light-font light-grey-text">Neutral</p>
+    <p class="text-center orange-font bold-font">DIFFICULT</p>
+    <p class="text-center light-font light-grey-text">Disruptive</p>
+  <% elsif rating > 2 && rating <= 3 %>
+    <p class="text-center light-font light-grey-text">Enthusiastic</p>
+    <p class="text-center light-font light-grey-text">Cooperative</p>
+    <p class="text-center orange-font bold-font">NEUTRAL</p>
+    <p class="text-center light-font light-grey-text">Difficult</p>
+    <p class="text-center light-font light-grey-text">Disruptive</p>
+  <% elsif rating > 3 && rating <= 4 %>
+    <p class="text-center light-font light-grey-text">Enthusiastic</p>
+    <p class="text-center orange-font bold-font">COOPERATIVE</p>
+    <p class="text-center light-font light-grey-text">Neutral</p>
+    <p class="text-center light-font light-grey-text">Difficult</p>
+    <p class="text-center light-font light-grey-text">Disruptive</p>
+  <% elsif rating > 4 %>
+    <p class="text-center orange-font bold-font">ENTHUSIASTIC</p>
+    <p class="text-center light-font light-grey-text">Cooperative</p>
+    <p class="text-center light-font light-grey-text">Neutral</p>
+    <p class="text-center light-font light-grey-text">Difficult</p>
+    <p class="text-center light-font light-grey-text">Disruptive</p>
+  <% else rating = nil %>
+   <p class="light-font light-grey-text"> No rating yet!</p>
+  <% end %>
+  </div>
+</div>
