@@ -5,6 +5,7 @@ class SurveysController < ApplicationController
 
     @team = Team.find(params[:team_id])
 
+
     @personal_growth_responses = []
     @team.questions.where(category: Category.first).each { |q| @personal_growth_responses << q.responses }
     @personal_growth = (@personal_growth_responses.flatten.pluck(:rating).sum.to_f / @personal_growth_responses.flatten.pluck(:rating).size.to_f).round(1)
@@ -24,6 +25,9 @@ class SurveysController < ApplicationController
     @enterprise_culture_responses = []
     @team.questions.where(category: Category.where(name: "Enterprise culture")).each { |q| @enterprise_culture_responses << q.responses }
     @enterprise_culture = (@enterprise_culture_responses.flatten.pluck(:rating).sum.to_f / @enterprise_culture_responses.flatten.pluck(:rating).size.to_f).round(1)
+
+    @global = ((@personal_growth + @well_being + @collaboration + @tools + @enterprise_culture)/5).round(1)
+
     @teams = Team.all
     render 'surveys/show'
 
