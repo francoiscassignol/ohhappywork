@@ -16,6 +16,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'jquery-rails'
+gem 'rails-assets-jquery-debounce', source: 'https://rails-assets.org'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
