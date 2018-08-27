@@ -15,14 +15,13 @@ User.create!(first_name: "1",last_name: "Aulas", email: "e1@free.fr", password: 
 User.create!(first_name: "2",last_name: "Aulas", email: "alex@mailinator.com", password: "azerty", role: "team_leader", team: team_1)
 User.create!(first_name: "3",last_name: "Aulas", email: "e3@free.fr", password: "azerty", role: "team_leader", team: team_2)
 User.create!(first_name: "4",last_name: "Aulas", email: "francis@mailinator.com", password: "azerty", role: "team_member", team: team_1)
-User.create!(first_name: "5",last_name: "Aulas", email: "e5@free.fr", password: "azerty", role: "team_member", team: team_1)
-User.create!(first_name: "6",last_name: "Aulas", email: "e6@free.fr", password: "azerty", role: "team_member", team: team_1)
+User.create!(first_name: "5",last_name: "Aulas", email: "aude@mailinator.com", password: "azerty", role: "team_member", team: team_1)
+User.create!(first_name: "6",last_name: "Aulas", email: "steph@mailinator.com", password: "azerty", role: "team_member", team: team_1)
 
 User.create!(first_name: "7",last_name: "Aulas", email: "e7@free.fr", password: "azerty", role: "team_member", team: team_2)
 User.create!(first_name: "8",last_name: "Aulas", email: "e8@free.fr", password: "azerty", role: "team_member", team: team_2)
 User.create!(first_name: "9",last_name: "Aulas", email: "e9@free.fr", password: "azerty", role: "team_member", team: team_2)
 User.create!(first_name: "10",last_name: "Aulas", email: "e10@free.fr", password: "azerty", role: "team_member", team: team_2)
-
 
 # Create surveys
 

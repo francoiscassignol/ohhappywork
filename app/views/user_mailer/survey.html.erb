@@ -1,5 +1,7 @@
 <h1>User#survey</h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/user_mailer/survey.html.erb
+  <%= @greeting %>, <%= @user.first_name %>, find me in app/views/user_mailer/survey.html.erb
 </p>
+<p>t'es beau</p>
+<p><%= link_to "Answer", new_survey_response_url(@survey) %></p>

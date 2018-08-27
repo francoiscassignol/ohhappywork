@@ -8,7 +8,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <a class="button button-purple" href="#">Launch a survey <span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
+     <!-- <a class="button button-purple" href="#">Launch a survey <span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>-->
+     <%= link_to "Launch a survey", team_surveys_path(params[:team_id]), method: :post, remote: true %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">

@@ -1,6 +1,7 @@
 class SurveysController < ApplicationController
 
   def index
+    
 
   	@personal_growth_responses = []
   	Team.find(params[:team_id]).questions.where(category: Category.first).each { |q| @personal_growth_responses << q.responses }
@@ -61,11 +62,18 @@ class SurveysController < ApplicationController
 
     @survey = Survey.create!(team: Team.find(params[:team_id]))
     Question.create!(category: Category.first, text: @personal_growth_question_text.sample, survey: @survey )
-    Question.create!(category: Category.find[2], text: @well_being_question_text.sample, survey: @survey )
-    Question.create!(category: Category.find[3], text: @collaboration_question_text.sample, survey: @survey )
-    Question.create!(category: Category.find[4], text: @tools_question_text.sample, survey: @survey )
-    Question.create!(category: Category.find[5], text: @enterprise_culture_question_text.sample, survey: @survey )
+    Question.create!(category: Category.find_by(name: "Well being"), text: @well_being_question_text.sample, survey: @survey )
+    Question.create!(category: Category.find_by(name: "Collaboration"), text: @collaboration_question_text.sample, survey: @survey )
+    Question.create!(category: Category.find_by(name: "Tools & Processes"), text: @tools_question_text.sample, survey: @survey )
+    Question.create!(category: Category.find_by(name: "Enterprise culture"), text: @enterprise_culture_question_text.sample, survey: @survey )
+    
+    Team.find(params[:team_id]).users.each do |user|
+      UserMailer.survey(user, @survey).deliver_now
     end
+
+  end
+
+
 end
 
 
@@ -84,5 +92,13 @@ end
 # end
 
 
+class User < ApplicationRecord
+  after_create :send_welcome_email
 
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
+end
 
