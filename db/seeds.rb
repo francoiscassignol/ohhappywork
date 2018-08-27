@@ -13,8 +13,8 @@ team_4 = Team.create!(name: "HR")
 
 # Create users
 
-aude = User.create!(first_name: "Aude",last_name: "Idh", email: "aude.idh@gmail.com", password: "azerty", role: "super_user")
 
+aude = User.create!(first_name: "Aude",last_name: "Idh", email: "aude.idh@gmail.com", password: "azerty", role: "super_user")
 alex = User.create!(first_name: "Alex",last_name: "Grondin", email: "alex@mailinator.com", password: "azerty", role: "team_leader", team: team_1)
 a1t1 = User.create!(first_name: "1",last_name: "team1", email: "1-team1@mailinator.com", password: "azerty", role: "team_member", team: team_1)
 a2t1 = User.create!(first_name: "2",last_name: "team1", email: "2-team1@mailinator.com", password: "azerty", role: "team_member", team: team_1)
@@ -66,6 +66,7 @@ enter = Category.create!(name: "Enterprise culture")
 # end
 
 #create surveys / questions
+
 
 survey_1 = Survey.create!(team: team_1)
   question_1 = Question.create!(category: personal_growth, text: "I feel like I can voice my opinion", survey: survey_1 )

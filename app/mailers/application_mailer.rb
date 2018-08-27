@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'a.grondin@tbs-education.org'
+  default from: 'Oh Happy Work <ohhappywork.contact@gmail.com>'
   layout 'mailer'
 end
 

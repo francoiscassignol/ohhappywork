@@ -5,10 +5,18 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.survey.subject
   #
-  def survey(user)
+  def survey(user, survey)
   	@user = user
-    @greeting = "Hi"
+    @survey = survey
+    
 
-    mail to: "cassignol.fr@gmail.com", subject: "Salut #{@user.first_name}, la formiche mamen ?"
+    mail to: @user.email, subject: "Hi #{@user.first_name}, your manager need you !"
   end
+
+  #  def survey
+  
+  #   @greeting = "Hi"
+
+  #   mail to: "cassignol.fr@gmail.com", subject: "Salut , la formiche mamen ?"
+  # end
 end
