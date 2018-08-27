@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2018_08_22_153639) do
 
   create_table "responses", force: :cascade do |t|
     t.integer "rating"
-    t.text "review"
     t.bigint "user_id"
     t.bigint "question_id"
     t.datetime "created_at", null: false
@@ -44,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_153639) do
 
   create_table "surveys", force: :cascade do |t|
     t.bigint "team_id"
+    t.text "review"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_surveys_on_team_id"
