@@ -1,12 +1,32 @@
+.question-container{
+  height: 65vh;
+}
+.question-content{
+  height:85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-next{
+  height:15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 .slidecontainer {
-    width: 80%;
+    width: 100%;
 }
 
 .slider {
     -webkit-appearance: none;
     width: 100%;
-    height: 5px;
-    background: #f9b002;
+    height: 25px;
+    background: #d3d3d3;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -15,4 +35,20 @@
 
 .slider:hover {
     opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: $orange;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: $orange;
+    cursor: pointer;
 }
