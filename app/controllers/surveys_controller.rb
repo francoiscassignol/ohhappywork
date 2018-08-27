@@ -1,6 +1,7 @@
 class SurveysController < ApplicationController
 
   def index
+    
 
     @team = Team.find(params[:team_id])
 
@@ -77,11 +78,18 @@ class SurveysController < ApplicationController
 
     @survey = Survey.create!(team: @team)
     Question.create!(category: Category.first, text: @personal_growth_question_text.sample, survey: @survey )
-    Question.create!(category: Category.find[2], text: @well_being_question_text.sample, survey: @survey )
-    Question.create!(category: Category.find[3], text: @collaboration_question_text.sample, survey: @survey )
-    Question.create!(category: Category.find[4], text: @tools_question_text.sample, survey: @survey )
-    Question.create!(category: Category.find[5], text: @enterprise_culture_question_text.sample, survey: @survey )
+
+    Question.create!(category: Category.find_by(name: "Well being"), text: @well_being_question_text.sample, survey: @survey )
+    Question.create!(category: Category.find_by(name: "Collaboration"), text: @collaboration_question_text.sample, survey: @survey )
+    Question.create!(category: Category.find_by(name: "Tools & Processes"), text: @tools_question_text.sample, survey: @survey )
+    Question.create!(category: Category.find_by(name: "Enterprise culture"), text: @enterprise_culture_question_text.sample, survey: @survey )
+    
+    Team.find(params[:team_id]).users.each do |user|
+      UserMailer.survey(user, @survey).deliver_now
+    end
+
   end
+
 end
 
 
@@ -97,5 +105,6 @@ end
 #   end
 # end
 
-    #<ActiveRecord::Relation [#<Category id: 1, name: "Personal growth", created_at: "2018-08-23 12:12:35", updated_at: "2018-08-23 12:12:35">, #<Category id: 2, name: "Well being", created_at: "2018-08-23 12:12:36", updated_at: "2018-08-23 12:12:36">, #<Category id: 3, name: "Collaboration", created_at: "2018-08-23 12:12:36", updated_at: "2018-08-23 12:12:36">, #<Category id: 4, name: "Tools & Processes", created_at: "2018-08-23 12:12:36", updated_at: "2018-08-23 12:12:36">, #<Category id: 5, name: "Enterprise culture", created_at: "2018-08-23 12:12:36", updated_at: "2018-08-23 12:12:36">]>
+
+
 

@@ -2,7 +2,7 @@ class CreateSurveys < ActiveRecord::Migration[5.2]
   def change
     create_table :surveys do |t|
       t.references :team, foreign_key: true
-
+      t.text :review
       t.timestamps
     end
   end

@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'jquery-rails'
 gem 'rails-assets-jquery-debounce', source: 'https://rails-assets.org'
+gem 'letter_opener', group: :development
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -31,3 +32,4 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
