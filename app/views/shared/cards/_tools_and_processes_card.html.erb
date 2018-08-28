@@ -1,10 +1,11 @@
-
 <div class="card">
   <h4>Tools & Processes</h4>
   <p class="light-grey-text">Training, systems and methods indicator </p>
   <div class="frame">
     <h4 class="light-font text-center"> Team's effectiveness </h4>
-    <p><%= rating %></p>
+    <%= content_tag :div, class: "ratings_tools", data: {ratings: ratings} do %>
+    <% end %>
+    <canvas id="myChart" class="chart-dimensions"></canvas>
   </div>
 </div>
 

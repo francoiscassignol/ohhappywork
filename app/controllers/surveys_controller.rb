@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
 
   def index
-    
+
 
     @team = Team.find(params[:team_id])
 
@@ -21,6 +21,8 @@ class SurveysController < ApplicationController
     @tools_responses = []
     @team.questions.where(category: Category.where(name: "Tools & Processes")).each { |q| @tools_responses << q.responses }
     @tools = (@tools_responses.flatten.pluck(:rating).sum.to_f / @tools_responses.flatten.pluck(:rating).size.to_f).round(1)
+    @tools_ratings = []
+    @tools_ratings = @tools_responses.flatten.pluck(:rating)
 
     @enterprise_culture_responses = []
     @team.questions.where(category: Category.where(name: "Enterprise culture")).each { |q| @enterprise_culture_responses << q.responses }
@@ -30,7 +32,6 @@ class SurveysController < ApplicationController
 
     @teams = Team.all
     render 'surveys/show'
-
   end
 
   def show
@@ -64,7 +65,7 @@ class SurveysController < ApplicationController
     @enterprise_culture_ratings = []
     @survey.questions.where(category: Category.where(name: "Enterprise culture")).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
     @enterprise_culture = (@enterprise_culture_ratings.sum.to_f / @enterprise_culture_ratings.size.to_f).round(1)
-
+    raise
   end
 
 # Pour le bouton, passer un argument team
@@ -83,7 +84,7 @@ class SurveysController < ApplicationController
     Question.create!(category: Category.find_by(name: "Collaboration"), text: @collaboration_question_text.sample, survey: @survey )
     Question.create!(category: Category.find_by(name: "Tools & Processes"), text: @tools_question_text.sample, survey: @survey )
     Question.create!(category: Category.find_by(name: "Enterprise culture"), text: @enterprise_culture_question_text.sample, survey: @survey )
-    
+
     Team.find(params[:team_id]).users.each do |user|
       UserMailer.survey(user, @survey).deliver_now
     end
