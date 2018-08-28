@@ -1,0 +1,14 @@
+   <% if @rating < 3  %>
+ <h4 class="light-font"><strong>Warning! Your team struggle. You might find the above recommendations helpful; </strong></h4>
+  <br>
+
+  <p class="light-font">Encourage brainstorming and ask your team to come up with ideas around streamlining of processes and how to implement them.</p>
+  <p class="light-font">Build interdependence and trust to create a sense of community and synergy.</p>
+  <p class="light-font">Organize events and activities to encourage teamwork through collaboration.</p>
+  <% elsif @rating = 3 && @rating < 4 %>
+  <h4 class="text-center"><strong> Beware, it could be better!</strong> Regular checkups with your team will catch deviations and enable a corrective course of action.</h4>
+  <% else %>
+   <h4 class="orange-font text-center"><strong>Awesome, your team evolves in a collaborative environment!</strong></h4>
+<% end%>
+
+

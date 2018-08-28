@@ -1,5 +1,5 @@
-function runFormAnimation() {
   // Variables
+function runFormAnimation() {
   const buttons = document.querySelectorAll('#next');
   const container = document.querySelector(".question-container");
   console.log(buttons);
@@ -20,7 +20,5 @@ function runFormAnimation() {
     button.addEventListener('click', initScroll)
   })
 }
-
-
 
 export default runFormAnimation;
