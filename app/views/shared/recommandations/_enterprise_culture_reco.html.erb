@@ -1,0 +1,14 @@
+   <% if @rating < 3  %>
+ <h4 class="light-font"><strong>Warning! Your team feels confused. You might find the above recommendations helpful; </strong></h4>
+  <br>
+
+  <p class="light-font"> When there are issues within your team, remember that every problem is an opportunity to make positive change. Take the approach that everything is a learning opportunity. </p>
+  <p class="light-font">Celebrate employee’s contributions which directly impacts retention and recruitment.</p>
+  <p class="light-font">Build a culture that truly encourages collaboration and enhances productivity where the entire company is on the same page and working within the same guidelines.</p>
+  <% elsif @rating = 3 && @rating < 4 %>
+  <h4 class="text-center"><strong> Beware, it could be better!</strong> Regular checkups with your team will catch deviations and enable a corrective course of action.</h4>
+  <% else %>
+   <h4 class="orange-font text-center"><strong>Awesome, your team relates with the culture!</strong></h4>
+<% end%>
+
+

@@ -21,6 +21,8 @@ class SurveysController < ApplicationController
     @tools_responses = []
     @team.questions.where(category: Category.where(name: "Tools & Processes")).each { |q| @tools_responses << q.responses }
     @tools = (@tools_responses.flatten.pluck(:rating).sum.to_f / @tools_responses.flatten.pluck(:rating).size.to_f).round(1)
+    @tools_ratings = []
+    @tools_ratings = @tools_responses.flatten.pluck(:rating)
 
     @enterprise_culture_responses = []
     @team.questions.where(category: Category.where(name: "Enterprise culture")).each { |q| @enterprise_culture_responses << q.responses }
@@ -31,6 +33,8 @@ class SurveysController < ApplicationController
     @teams = Team.all
     render 'surveys/show'
 
+    # donner accès à un array de ratings (les 5 derniers)
+    # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
   end
 
   def show
@@ -65,10 +69,19 @@ class SurveysController < ApplicationController
     @survey.questions.where(category: Category.where(name: "Enterprise culture")).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
     @enterprise_culture = (@enterprise_culture_ratings.sum.to_f / @enterprise_culture_ratings.size.to_f).round(1)
 
+    @global = ((@personal_growth + @well_being + @collaboration + @tools + @enterprise_culture)/5).round(1)
+    
+    # donner accès à un array de ratings (les 5 derniers)
+    # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
+
+
+
   end
 
 # Pour le bouton, passer un argument team
   def create
+
+    @team = Team.find(params[:team_id])
 
     @personal_growth_question_text = ["I feel like I can voice my opinion","I have the opportunity to grow within the organization","My organization celebrates team accomplishments as well as personal success"]
     @well_being_question_text = ["My direct manager cares about my well-being and support me when i am dealing with personal issues","I have the flexibility to take time off when I need to","I feel that I can maintain a healthy balance between work and my personal life"]
