@@ -89,7 +89,7 @@ class SurveysController < ApplicationController
     @tools_question_text = ["I  have access to the resources needed to do my work properly","The processes and tools provided are relevant  and helpful to accomplish my work","I am satisfied with the level of comfort and safety in my physical workplace"]
     @enterprise_culture_question_text = ["Leaders demonstrate  a vision that motivates me","I understand how my work contributes to the goals of my organization","I consider myself an ambassador for my organization"]
 
-    @survey = Survey.create!(team: @team)
+    @survey = Survey.create!(team: Team.find(params[:team_id]))
     Question.create!(category: Category.first, text: @personal_growth_question_text.sample, survey: @survey )
 
     Question.create!(category: Category.find_by(name: "Well being"), text: @well_being_question_text.sample, survey: @survey )
