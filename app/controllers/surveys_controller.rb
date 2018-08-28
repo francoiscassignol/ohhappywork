@@ -3,6 +3,7 @@ class SurveysController < ApplicationController
   def index
     
 
+
     @team = Team.find(params[:team_id])
 
 
@@ -34,6 +35,8 @@ class SurveysController < ApplicationController
   end
 
   def show
+    
+
     @team = Team.find(Survey.find(params[:id]).team_id)
     @teams = Team.all
 
@@ -80,17 +83,41 @@ class SurveysController < ApplicationController
 
     @survey = Survey.create!(team: @team)
     Question.create!(category: Category.first, text: @personal_growth_question_text.sample, survey: @survey )
-
     Question.create!(category: Category.find_by(name: "Well being"), text: @well_being_question_text.sample, survey: @survey )
     Question.create!(category: Category.find_by(name: "Collaboration"), text: @collaboration_question_text.sample, survey: @survey )
     Question.create!(category: Category.find_by(name: "Tools & Processes"), text: @tools_question_text.sample, survey: @survey )
     Question.create!(category: Category.find_by(name: "Enterprise culture"), text: @enterprise_culture_question_text.sample, survey: @survey )
+
     
     Team.find(params[:team_id]).users.each do |user|
       UserMailer.survey(user, @survey).deliver_now
     end
 
   end
+
+   def review_one
+     @reviews = Survey.find(params[:survey_id]).reviews
+     
+   end
+
+   def reviews_team
+    
+    @surveys = []
+    Team.find(params[:team_id]).surveys.each {|survey| @surveys << survey }
+    @reviews = []
+    @surveys.each {|survey| survey.reviews.each {|instance| @reviews << instance}}
+    
+    render 'surveys/review_one'
+   end
+
+   def review_all
+    @surveys = []
+    Survey.all.each {|survey| @surveys << survey }
+    @reviews = []
+    @surveys.each {|survey| survey.reviews.each {|instance| @reviews << instance}} 
+    
+    render 'surveys/review_one'
+   end
 
 end
 

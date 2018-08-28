@@ -3,23 +3,65 @@
   <div class="left">
     <div class="left-content">
 
-      <div class="left-content-item">
-        <%= image_tag(asset_path('dash-default'), class: "padding-right icon-size", id: "dash") %>
+      <% if ( current_user.role === "super_user" && (params[:id] != nil || params[:team_id] != nil) ) %>
 
-        <p>
-        <%= link_to "All surveys results", team_surveys_path(@team), class: "orange-font"%>
-        </p>
-      </div>
-      <div class="left-content-item">
-        <%= image_tag asset_path("history-default"), class: "padding-right icon-size", id: "history" %>
-        <p>Specific survey results</p>
+        <div class="left-content-item">
+          <%= image_tag(asset_path('dash-default'), class: "padding-right icon-size", id: "dash") %>
 
-      </div>
-        <div class="margin-left">
-        <% @team.surveys.pluck(:id).each do |id| %>
-        <p><%= link_to "Survey of #{Survey.find(id).created_at.strftime("%m/%d/%Y")}", survey_path(Survey.find(id)), class: "orange-font" %></p>
-        <% end %>
+          <p>
+          <%= link_to "All surveys results", teams_path, class: "orange-font"%>
+          </p>
         </div>
+
+        <div class="left-content-item">
+          <%= image_tag(asset_path('dash-default'), class: "padding-right icon-size", id: "dash") %>
+
+          <p>
+          <%= link_to "All #{@team.name}'s results", team_surveys_path(@team), class: "orange-font"%>
+          </p>
+        </div>
+        <div class="left-content-item">
+          <%= image_tag asset_path("history-default"), class: "padding-right icon-size", id: "history" %>
+          <p>Specific survey results</p>
+
+        </div>
+          <div class="margin-left">
+          <% @team.surveys.pluck(:id).each do |id| %>
+          <p><%= link_to "Survey of #{Survey.find(id).created_at.strftime("%m/%d/%Y")}", survey_path(Survey.find(id)), class: "orange-font" %></p>
+          <% end %>
+          </div>
+
+        <% elsif current_user.role === "super_user" %>
+
+          <div class="left-content-item">
+          <%= image_tag(asset_path('dash-default'), class: "padding-right icon-size", id: "dash") %>
+
+          <p>
+          <%= link_to "All surveys results", teams_path, class: "orange-font"%>
+          </p>
+          </div>
+
+        <% else %>
+          <div class="left-content-item">
+          <%= image_tag(asset_path('dash-default'), class: "padding-right icon-size", id: "dash") %>
+
+          <p>
+          <%= link_to "All #{@team.name}'s results", team_surveys_path(@team), class: "orange-font"%>
+          </p>
+        </div>
+        <div class="left-content-item">
+          <%= image_tag asset_path("history-default"), class: "padding-right icon-size", id: "history" %>
+          <p>Specific survey results</p>
+
+        </div>
+          <div class="margin-left">
+          <% @team.surveys.pluck(:id).each do |id| %>
+          <p><%= link_to "Survey of #{Survey.find(id).created_at.strftime("%m/%d/%Y")}", survey_path(Survey.find(id)), class: "orange-font" %></p>
+          <% end %>
+          </div>
+
+        <% end %>
+
     </div>
   </div>
 
@@ -34,6 +76,8 @@
             <% if @survey %>
               <p class="orange-font">Survey of <%= @survey.created_at.strftime("%m/%d/%Y") %></p>
             <% end %>
+          <% else %>
+            <h1 class="orange-font light-font">All team's pulse dashboard</h1>
           <% end %>
 
         </div>
@@ -56,7 +100,13 @@
             <h4>Global Happiness</h4>
 
             <h2> <%= @global %> </h2>
-            <%= link_to "Reviews", "#", class: "button button-white" %>
+            <% if params[:id] %>
+            <%= link_to "Reviews", survey_reviews_path(@survey), class: "button button-white" %>
+            <% elsif params[:team_id] %>
+            <%= link_to "Reviews", team_reviews_team_path(@team) , class: "button button-white" %>
+            <% else %>
+            <%= link_to "Reviews", review_all_path, class: "button button-white" %>
+            <% end %>
           </div>
         </div>
 

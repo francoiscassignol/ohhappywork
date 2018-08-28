@@ -3,8 +3,6 @@ class TeamsController < ApplicationController
 
     @teams = Team.all
 
-    @team = Team.first
-
     if current_user.role != "super_user"
       redirect_to team_surveys_path(current_user.team_id)
     else
