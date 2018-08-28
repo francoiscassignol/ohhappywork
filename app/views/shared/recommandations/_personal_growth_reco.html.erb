@@ -1,0 +1,14 @@
+   <% if @rating < 3  %>
+ <h4 class="light-font"><strong>Warning! Your team feels limited and is losing motivation. You might find the above recommendations helpful; </strong></h4>
+  <br>
+
+  <p class="light-font">Have regular reviews with your team and consider having them set their own goals.</p>
+  <p class="light-font">Promote opportunity to growth within the company. Consider assigning your employee additional responsibilities.</p>
+  <p class="light-font">Prioritize professional development to focus on specific skills that could use work and actually helping your team become better professionals.</p>
+  <% elsif @rating = 3 && @rating < 4 %>
+  <h4 class="text-center"><strong> Beware, it could be better!</strong> Regular checkups with your team will catch deviations and enable a corrective course of action.</h4>
+  <% else %>
+   <h4 class="orange-font text-center"><strong>Awesome, your team's potential is booming!</strong></h4>
+<% end%>
+
+
