@@ -3,7 +3,10 @@
   <p class="light-grey-text">Training, systems and methods indicator </p>
   <div class="frame">
     <h4 class="light-font text-center"> Team's effectiveness </h4>
-    <%= content_tag :div, class: "ratings_tools", data: {ratings: ratings} do %>
+    <!-- surveys -> ["08/27/2018",] -->
+    <% surveys = ["08/27", "09/27", "10/27", "10/30", "10/30"] %>
+
+    <%= content_tag :div, class: "ratings_tools", data: {ratings: ratings, labels: surveys} do %>
     <% end %>
     <canvas id="myChart" class="chart-dimensions"></canvas>
   </div>

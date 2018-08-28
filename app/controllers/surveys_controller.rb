@@ -32,6 +32,9 @@ class SurveysController < ApplicationController
 
     @teams = Team.all
     render 'surveys/show'
+
+    # donner accès à un array de ratings (les 5 derniers)
+    # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
   end
 
   def show
@@ -65,7 +68,10 @@ class SurveysController < ApplicationController
     @enterprise_culture_ratings = []
     @survey.questions.where(category: Category.where(name: "Enterprise culture")).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
     @enterprise_culture = (@enterprise_culture_ratings.sum.to_f / @enterprise_culture_ratings.size.to_f).round(1)
-    raise
+
+    # donner accès à un array de ratings (les 5 derniers)
+    # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
+
   end
 
 # Pour le bouton, passer un argument team

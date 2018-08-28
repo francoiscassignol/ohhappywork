@@ -10,7 +10,7 @@ function initChart() {
   var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-          labels: ["1", "2", "3", "4", "5"],
+          labels: $('.ratings_tools').data('labels'),
           datasets: [{
               label: 'Notes on 5',
               data: $('.ratings_tools').data('ratings'),
