@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
 
   def index
-    
+
 
     @team = Team.find(params[:team_id])
 
@@ -65,6 +65,9 @@ class SurveysController < ApplicationController
     @survey.questions.where(category: Category.where(name: "Enterprise culture")).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
     @enterprise_culture = (@enterprise_culture_ratings.sum.to_f / @enterprise_culture_ratings.size.to_f).round(1)
 
+    @global = ((@personal_growth + @well_being + @collaboration + @tools + @enterprise_culture)/5).round(1)
+
+
   end
 
 # Pour le bouton, passer un argument team
@@ -85,7 +88,7 @@ class SurveysController < ApplicationController
     Question.create!(category: Category.find_by(name: "Collaboration"), text: @collaboration_question_text.sample, survey: @survey )
     Question.create!(category: Category.find_by(name: "Tools & Processes"), text: @tools_question_text.sample, survey: @survey )
     Question.create!(category: Category.find_by(name: "Enterprise culture"), text: @enterprise_culture_question_text.sample, survey: @survey )
-    
+
     Team.find(params[:team_id]).users.each do |user|
       UserMailer.survey(user, @survey).deliver_now
     end
