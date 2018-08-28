@@ -1,1 +1,63 @@
 // Specific CSS for your home-page
+.background-gradient {
+  background-image: linear-gradient(to right,#FF7300,#FFC844);
+  padding-bottom: 80px;
+  padding-top: 80px;
+}
+
+.center-vertical-text{
+  margin-top: 120px;
+}
+
+.polygone{
+ width: 420px;
+ height: 30px;
+ border-radius: 20px;
+ background:#FF7300;
+ font-size: 9px;
+ padding: 5px;
+}
+
+.little_polygone {
+  width: 10px;
+ height: 10px;
+ border-radius: 10px;
+ background:#f9b002;
+ padding-left: 5px;
+ margin-right: 5px;
+}
+
+.font-size {
+ font-size: 13px;
+}
+
+.card_home {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 600 px;
+  margin: 1rem;
+  position: relative;
+  width: 320px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.09);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.card_infos {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.text_align {
+  text-align: center;
+}
+
+.pop-new {
+  padding: 3px;
+  color: white;
+}
+

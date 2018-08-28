@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: 'teams#index'
+  root to: 'pages#home'
 
+  get "/home", to: "pages#home", as: :home
   get "/pages", to: "pages#show", as: :page_show
 
   resources :surveys, only: [:show] do
