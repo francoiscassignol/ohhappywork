@@ -28,6 +28,9 @@ class ResponsesController < ApplicationController
    @survey.review = params[:review]
    @survey.save!
 
+   # @review = Review.new(text: params[:review])
+   # @review.survey = @survey
+   # @review.save
    redirect_to page_show_path
  end
 
