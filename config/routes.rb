@@ -5,14 +5,13 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get "/home", to: "pages#home", as: :home
   get "/pages", to: "pages#show", as: :page_show
   get 'review_all', to: 'surveys#review_all', as: :review_all
 
 
   resources :surveys, only: [:show] do
     resources :responses, only: [:new, :create]
-    get 'review_one', to: 'surveys#review_one', as: :reviews    
+    get 'review_one', to: 'surveys#review_one', as: :reviews
   end
 
   resources :teams, only: [ :index ] do

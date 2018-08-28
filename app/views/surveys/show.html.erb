@@ -97,7 +97,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card orange-card">
-            
+
             <h4 class="">Global Happiness</h4>
             <% if @global <= 1  %>
               <p class="picto-inline align-vertical-center">
@@ -211,7 +211,9 @@
   </div>
 </div>
 
-<%= render 'shared/modal' %>
+<% if params[:team_id] %>
+  <%= render 'shared/modal' %>
+<% end %>
 
 
 <!-- waiting for the average given by the controller-->
