@@ -9,7 +9,6 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.09);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   padding: 20px;
-
   color: $gray;
 }
 
@@ -38,8 +37,9 @@
 }
 
 .card-super-lg{
+  margin-top: 50px;
   width:330px;
-  height: 480px;
+  height: 420px;
 }
 
 .card-lg:hover {
@@ -67,7 +67,7 @@
 
 
 .big-picto{
-  height: 55px;
+  height: 45px;
 }
 
 .picto-inline{
@@ -76,7 +76,6 @@
   align-items: center;
   bottom: 0;
 }
-
 
 .small-font{
   font-size: 12px;

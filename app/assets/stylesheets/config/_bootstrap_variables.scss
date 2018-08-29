@@ -50,4 +50,9 @@ $border-radius-small: 2px;
   display: block;
 }
 
+.form-control:focus {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
 // Override other variables below!

@@ -108,10 +108,13 @@ class SurveysController < ApplicationController
     Question.create!(category: Category.find_by(name: "Enterprise culture"), text: @enterprise_culture_question_text.sample, survey: @survey )
 
     Team.find(params[:team_id]).users.each do |user|
-      UserMailer.survey(user, @survey).deliver_now
+      UserMailer.survey(user, @survey).deliver_later
     end
 
-  end
+    flash[:notice] = " #{current_user.first_name}, survey launch !"
+
+
+   end
 
    def review_one
      @reviews = Survey.find(params[:survey_id]).reviews

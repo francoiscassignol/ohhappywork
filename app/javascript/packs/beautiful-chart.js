@@ -10,6 +10,15 @@ function initChart() {
   console.log(myData);
   const ctx = myChart.getContext('2d');
 
+  Chart.defaults.global.hover.mode = 'nearest';
+
+  Chart.defaults.global.legend.display = false;
+
+  Chart.defaults.global.defaultFontFamily = "'lato'";
+
+  Chart.defaults.global.defaultFontSize = 7;
+
+
   var myChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -18,7 +27,7 @@ function initChart() {
               label: 'Notes on 5',
               data: $('.ratings_tools').data('ratings'),
               backgroundColor: [
-                  'rgba(249, 176, 2, 0.2)'
+                  'rgba(249, 176, 2, 0.3)'
               ],
               borderColor: [
                   'rgba(249, 176, 2)'
@@ -32,8 +41,15 @@ function initChart() {
                   ticks: {
                       beginAtZero:true,
                       max:5,
-                      stepSize:1
+                      stepSize:1,
+                      fontFamily: "Lato",
+                      fontSize: 7,
+
+
+
+
                   }
+
               }]
           }
       }
