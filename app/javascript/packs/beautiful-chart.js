@@ -27,7 +27,9 @@ function initChart() {
           scales: {
               yAxes: [{
                   ticks: {
-                      beginAtZero:true
+                      beginAtZero:true,
+                      max:5,
+                      stepSize:1
                   }
               }]
           }

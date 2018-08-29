@@ -185,10 +185,10 @@
         <div class="col-md-4">
           <% if @tool_question %>
             <%= link_to question_path(@tool_question) do %>
-              <%= render "shared/cards/tools_and_processes_card", rating: @tools, ratings: @tools_ratings %>
+              <%= render "shared/cards/tools_and_processes_card", ratings: @tools, labels: @tools_labels %>
             <% end %>
           <% else %>
-              <%= render "shared/cards/tools_and_processes_card", rating: @tools, ratings: @tools_ratings  %>
+              <%= render "shared/cards/tools_and_processes_card", ratings: @tools_ratings, labels: @tools_labels  %>
           <% end %>
         </div>
 
