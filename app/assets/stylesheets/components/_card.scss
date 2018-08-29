@@ -55,6 +55,11 @@
   height:200px;
 }
 
+.card-medium {
+  width:500px;
+  height:200px;
+}
+
 
 .picto {
   height: 25px;
@@ -91,4 +96,13 @@
   width: 235px;
   height: 200px;
   font-size: 10px!important;
+}
+.Aligner {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.Aligner-item {
+  margin-top: 50px;
 }

@@ -1,11 +1,55 @@
-<% @reviews.each do |review| %>
-<p><%= review.content  %>  <p>
-	<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">  
+      <% if params[:team_id] %>
+        <h1 class="orange-font light-font"><%= @reviews.first.survey.team.name %>'s reviews</h1>
+      <% elsif params[:survey_id] %>
+        <h1 class="orange-font light-font"><%= @reviews.first.survey.team.name %>'s reviews on <%= @reviews.first.survey.created_at.strftime("%m/%d/%Y")%></h1>
+      <% else %>
+        <h1 class="orange-font light-font"> All reviews</h1>
+      <% end %>
+    </div>
+    <div class="col-md-4"> 
+      <% if params[:team_id] %>
+        <%= link_to "Back to #{Team.find(params[:team_id]).name}'s dashboard", team_surveys_path(Team.find(params[:team_id])), class: "button button-orange"%>
+      <% elsif params[:survey_id] %>
+        <%= link_to "Back to survey", survey_path(Survey.find(params[:survey_id])), class: "button button-orange"%>
+      <% else %>
+        <%= link_to "Back to global dashboard", teams_path, class: "button button-orange" %>
+      <% end %>
+    </div>
+  </div>
 
-	<% if params[:team_id] %>
-	<%= link_to "Back In Business", team_surveys_path(Team.find(params[:team_id]))%>
-	<% elsif params[:survey_id] %>
-	<%= link_to "Back In Business", survey_path(Survey.find(params[:survey_id]))%>
-	<% else %>
-	<%= link_to "Back In Business", root_path %>
-	<% end %>
+<% @reviews.each do |review| %>
+  <div class="card-medium card">
+    <div class="Aligner">
+      <div class="Aligner-item">
+        <div class="message-body">
+          <h3>
+            <%=review.content  %>
+          </h3>
+        </div>
+        <div class="message-name">
+          <p>From <%= review.survey.team.name %>'s team on
+          <%= review.created_at.strftime("%m/%d/%Y") %></p>
+        </div>
+      </div> 
+    </div>
+  </div>
+<% end %>
+
+
+
+
+
+    <% if params[:team_id] %>
+  <%= link_to "Back In Business", team_surveys_path(Team.find(params[:team_id])), class: "button button-orange"%>
+  <% elsif params[:survey_id] %>
+  <%= link_to "Back In Business", survey_path(Survey.find(params[:survey_id])), class: "button button-orange"%>
+  <% else %>
+  <%= link_to "Back In Business", teams_path, class: "button button-orange" %>
+  <% end %>
+
+
+
+</div>

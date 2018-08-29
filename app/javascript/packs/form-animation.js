@@ -2,7 +2,7 @@
 function runFormAnimation() {
   const buttons = document.querySelectorAll('#next');
   const container = document.querySelector(".question-container");
-  console.log(buttons);
+  // console.log(buttons);
 
 
   // Functions
