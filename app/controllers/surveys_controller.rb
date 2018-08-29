@@ -85,7 +85,16 @@ class SurveysController < ApplicationController
     # donner accès à un array de ratings (les 5 derniers)
     # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
 
+    @users = []
+    @responses = []
 
+    Survey.find(params[:id]).team.users.each{|user| @users << user}
+    Survey.find(params[:id]).questions.each {|question| question.responses.each{|response| @responses << response}}  
+
+    @responses_number = @responses.size / 5
+    @users_number = @users.size
+    @pourcentage = (@responses_number.to_f / @users_number.to_f) * 100
+raise
 
   end
 
