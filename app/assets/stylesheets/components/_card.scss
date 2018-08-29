@@ -55,6 +55,11 @@
   height:200px;
 }
 
+.card-long-slim{
+  width:1090px;
+  height:100px;
+}
+
 .card-medium {
   width:500px;
   height:200px;
@@ -104,4 +109,16 @@
 
 .Aligner-item {
   margin-top: 50px;
+}
+
+.margin-center{
+  margin-top: 20px;
+}
+
+.no-margin{
+  margin-top: -12px !important;
+}
+
+.small-bar{
+  width:450px;
 }

@@ -1,5 +1,4 @@
 <!--View the detail of one category of a survey -->
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -17,7 +16,7 @@
       <div class="card card-md">
         <h4 class="text-center "> <%= @question.category.name %> question dated <%= @survey.created_at.strftime("%b %d, %Y") %></h4>
         <br><br><br><br>
-        <p class="text-center light-grey-text big-font">
+        <p class="text-center light-grey-text big-font light-font">
           "<%= @question.text %>"
         </p>
         <br><br>
@@ -29,9 +28,7 @@
     <div class="col-md-12">
 
       <div class="card card-long">
-
           <%= render "shared/recommandations/#{@type}_reco" %>
-
       </div>
 
       <%= link_to "Back", survey_path(Survey.find(Question.find(params[:id]).survey_id)), class: "button button-white" %>
