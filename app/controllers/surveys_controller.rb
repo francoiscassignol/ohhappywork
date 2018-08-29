@@ -37,7 +37,7 @@ class SurveysController < ApplicationController
     @global = ((@personal_growth + @well_being + @collaboration + @tools + @enterprise_culture)/5).round(1)
 
     @teams = Team.all
-    render 'surveys/show'
+    render 'surveys/global'
 
     # donner accès à un array de ratings (les 5 derniers)
     # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
