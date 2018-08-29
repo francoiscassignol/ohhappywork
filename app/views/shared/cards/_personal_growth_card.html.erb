@@ -3,15 +3,19 @@
   <p class="light-grey-text">Recognition, opportunity & involvement indicator</p>
   <div class="frame">
     <h4 class="light-font text-center"> Fullfilment gauge </h4>
-    <p><%= rating %></p>
-
-    <ul class="chart-skills">
+    <br>
+    <ul class="chart-skills" data-rating="<%= rating %>">
+      <%= image_tag asset_path('needle.png'), class: "needle" %>
+      <li><span>0</span></li>
       <li><span>1</span></li>
       <li><span>2</span></li>
       <li><span>3</span></li>
       <li><span>4</span></li>
       <li><span>5</span></li>
+      <style></style>
     </ul>
+
+
 
   </div>
 </div>
