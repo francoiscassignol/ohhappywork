@@ -1,8 +1,8 @@
 .question-container{
-  height: 65vh;
+  height: 60vh;
 }
 .question-content{
-  height:85%;
+  height:70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,10 +16,8 @@
   align-items: center;
 }
 
-
-
 .slidecontainer {
-    width: 100%;
+  width: 100%;
 }
 
 .slider {
@@ -52,3 +50,12 @@
     background: $orange;
     cursor: pointer;
 }
+
+.question-scale {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+
