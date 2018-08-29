@@ -1,0 +1,7 @@
+console.log("hello");
+
+document.getElementById("flashes").innerHTML = "<%= j(render('shared/flashes')) %>";
+
+setTimeout(function() {
+  $('.alert').slideUp()
+}, 5000)
