@@ -7,4 +7,6 @@ function needleMove() {
   needle.style.transform = `rotate(${angle}deg)`;
 }
 
-export default needleMove;
+ needleMove();
+
+// export default needleMove;
