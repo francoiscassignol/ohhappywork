@@ -63,6 +63,11 @@
   height:200px;
 }
 
+.card-medium {
+  width:500px;
+  height:200px;
+}
+
 
 .picto {
   height: 25px;
@@ -88,4 +93,14 @@
 .align-vertical-center{
   margin-top: 70px;
   margin-bottom: 50px;
+}
+
+.Aligner {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.Aligner-item {
+  margin-top: 50px;
 }
