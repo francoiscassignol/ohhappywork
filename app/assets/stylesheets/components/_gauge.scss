@@ -20,29 +20,30 @@
   overflow: hidden;
 }
 
-.chart-skills::before,
-.chart-skills::after {
+// .chart-skills::before {
+//   content: '';
+//   width: inherit;
+//   height: inherit;
+//   border: 15px solid rgba(211, 211, 211, .3);
+//   border-bottom: none;
+//   border-top-left-radius: 175px;
+//   border-top-right-radius: 175px;
+// }
+
+.chart-skills .needle {
+  // content: asset-url('aiguille.svg');
   position: absolute;
-}
-
-.chart-skills::before {
-  content: '';
-  width: inherit;
-  height: inherit;
-  border: 15px solid rgba(211, 211, 211, .3);
-  border-bottom: none;
-  border-top-left-radius: 175px;
-  border-top-right-radius: 175px;
-}
-
-.chart-skills::after {
-  content: asset-url('aiguille.svg');
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: blue;
+  bottom: 2px;
+  left: 21%;
+  width: 60px;
+  // transform: rotate(0deg);
+  transform-origin: 95%;
+  transition: all 4s;
+  transition-timing-function: cubic-bezier(0.1, 1.6, 0.4, 1);
+  transition-delay: .6s;
+  // left: 40%;
+  // bottom: 8px;
+  // transform: translateX(-60%);
 }
 
 .chart-skills li {
@@ -59,83 +60,97 @@
   transform-style: preserve-3d;
   backface-visibility: hidden;
   animation-fill-mode: forwards;
-  animation-duration: .4s;
+  animation-duration: .3s;
   animation-timing-function: linear;
 }
 
-.chart-skills li:nth-child(1) {
+.chart-skills li:nth-child(2) {
   z-index: 5;
   border-color: #FDDE95;
   animation-name: rotate-one;
 }
 
-.chart-skills li:nth-child(2) {
+.chart-skills li:nth-child(3) {
   z-index: 4;
   border-color: #FFC94A;
   animation-name: rotate-two;
-  animation-delay: .4s;
-}
-
-.chart-skills li:nth-child(3) {
-  z-index: 3;
-  border-color: #FFBA25;
-  animation-name: rotate-three;
-  animation-delay: .8s;
+  animation-delay: .3s;
 }
 
 .chart-skills li:nth-child(4) {
-  z-index: 2;
-  border-color: #FD9724;
-  animation-name: rotate-four;
-  animation-delay: 1.2s;
+  z-index: 3;
+  border-color: #FFBA25;
+  animation-name: rotate-three;
+  animation-delay: .6s;
 }
 
 .chart-skills li:nth-child(5) {
+  z-index: 2;
+  border-color: #FD9724;
+  animation-name: rotate-four;
+  animation-delay: .9s;
+}
+
+.chart-skills li:nth-child(6) {
   z-index: 1;
   border-color: #FD7F24;
   animation-name: rotate-five;
-  animation-delay: 1.6s;
+  animation-delay: 1.2s;
 }
+
+.chart-skills li:nth-child(7) {
+  z-index: 0;
+  animation-name: rotate-five;
+  animation-delay: 1.5s;
+}
+
 
 .chart-skills span {
   position: absolute;
   font-size: .85rem;
   backface-visibility: hidden;
-  animation: fade-in .4s linear forwards;
-}
-
-.chart-skills li:nth-child(1) span {
-  top: 5px;
-  left: 10px;
-  transform: rotate(-36deg);
+  animation: fade-in .3s linear forwards;
 }
 
 .chart-skills li:nth-child(2) span {
-  top: 20px;
-  left: 10px;
-  transform: rotate(-72deg);
-  animation-delay: .4s;
+  top: 36px;
+  left: 20px;
+  transform: rotate(-36deg);
 }
 
 .chart-skills li:nth-child(3) span {
-  top: 18px;
-  left: 10px;
-  transform: rotate(-108deg);
-  animation-delay: .8s;
+  top: 36px;
+  left: 20px;
+  transform: rotate(-72deg);
+  animation-delay: .3s;
 }
 
 .chart-skills li:nth-child(4) span {
-  top: 10px;
-  left: 10px;
-  transform: rotate(-144deg);
-  animation-delay: 1.2s;
+  top: 36px;
+  left: 21px;
+  transform: rotate(-108deg);
+  animation-delay: .6s;
 }
 
 .chart-skills li:nth-child(5) span {
-  top: 10px;
-  left: 10px;
+  top: 38px;
+  left: 23px;
+  transform: rotate(-144deg);
+  animation-delay: .9s;
+}
+
+.chart-skills li:nth-child(6) span {
+  top: 38px;
+  left: 20px;
   transform: rotate(-180deg);
-  animation-delay: 1.6s;
+  animation-delay: 1.2s;
+}
+
+.chart-skills li:nth-child(7) span {
+  top: 0px;
+  left: 8px;
+  transform: rotate(-180deg);
+  animation-delay: 1.5s;
 }
 
 
