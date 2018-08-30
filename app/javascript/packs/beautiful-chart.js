@@ -1,8 +1,13 @@
 import Chart from 'chart.js';
 function initChart() {
+
+  const myChartElement = document.getElementById("myChart");
+  if (myChartElement === null) { return false; }
+
   const myData = document.querySelector('.ratings_tools');
   console.log(myData);
-  const ctx = document.getElementById("myChart").getContext('2d');
+  const ctx = myChartElement.getContext('2d');
+
   Chart.defaults.global.hover.mode = 'nearest';
   Chart.defaults.global.legend.display = false;
   Chart.defaults.global.defaultFontFamily = "'lato'";
