@@ -25,7 +25,7 @@
 }
 
 .card:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.09), 0 10px 10px rgba(0,0,0,0.09);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.09), 0 5px 10px rgba(0,0,0,0.09);
 }
 
 .orange-card {
@@ -61,9 +61,9 @@
   height: 420px;
 }
 
-.card-lg:hover {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.09);
-}
+// .card-lg:hover {
+//   box-shadow: 0 5px 0px rgba(0,0,0,0.09);
+// }
 
 .card-md {
   width:700px;
@@ -92,6 +92,7 @@
 
 .big-picto{
   height: 45px;
+  border-radius: 50%
 }
 
 .picto-inline{
