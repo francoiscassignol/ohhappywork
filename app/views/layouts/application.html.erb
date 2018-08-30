@@ -3,12 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-
     <!--- PAGE TITLE -->
     <title>Oh Happy Work! Performance rhyme with happiness</title>
     <!--- Google Meta -->
@@ -23,10 +17,16 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Oh Happy Work, performance rhyme with happiness">
     <meta property="og:description" content="Oh Happy Work, performance rhyme with happiness ">
-    <meta property="og:image" content="<%image_path "team_ohw.jpg"%>">
+    <meta property="og:image" content="https://dp8v87cz8a7qa.cloudfront.net/43730/5b8815fb4b7541535645179.jpg">
     <meta property="og:site_name" content="Oh Happy Work!">
     <!--- Favicon -->
-    <link rel="apple-touch-icon" sizes="32x32" href="">
+    <link rel="shortcut icon" sizes="32x32" href="https://dp8v87cz8a7qa.cloudfront.net/43730/5b8815c02a4301535645120.png">
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+
+
   </head>
   <body>
     <%= render 'shared/navbar' %>
