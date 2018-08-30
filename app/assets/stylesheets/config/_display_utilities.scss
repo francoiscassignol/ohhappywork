@@ -1,0 +1,31 @@
+/* trop stylé */
+@for $i from 0 to 10 {
+  .margin-bottom-#{$i} {
+    margin-bottom: unquote($i + "%");
+  }
+}
+
+.margin-lefty{
+  margin-left: 15px;
+}
+
+.margin-topy{
+  margin-top: 35px;
+}
+
+.Aligner-item {
+  margin-top: 50px;
+}
+
+.margin-center{
+  margin-top: 20px;
+}
+
+.no-margin{
+  margin-top: -12px !important;
+}
+
+
+.margin-top-negative{
+  margin-top:-170px !important;
+}
