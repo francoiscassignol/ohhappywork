@@ -89,12 +89,11 @@ class SurveysController < ApplicationController
     @responses = []
 
     Survey.find(params[:id]).team.users.each{|user| @users << user}
-    Survey.find(params[:id]).questions.each {|question| question.responses.each{|response| @responses << response}}  
+    Survey.find(params[:id]).questions.each {|question| question.responses.each{|response| @responses << response}}
 
     @responses_number = @responses.size / 5
     @users_number = @users.size
     @pourcentage = (@responses_number.to_f / @users_number.to_f) * 100
-raise
 
   end
 
