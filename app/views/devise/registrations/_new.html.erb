@@ -1,29 +1,25 @@
-<!--
-        <div class="card_home">
-            <%# simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="card card-super-lg">
+  <div class="col-md-offset-1">
+    <br>
+   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+   <div class="form-input light-font light-grey-text small-form">
+     <%= f.input :first_name,
+       required: true,
+       input_html: { autocomplete: "your first_name" } %>
+     <%= f.input :last_name,
+       required: true,
+       input_html: { autocomplete: "your last_name" } %>
+     <%= f.input :email,
+       required: true,
+       autofocus: true ,
+       input_html: { autocomplete: "email" } %>
+     <%= f.input :password,
+       required: true,
+       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+       input_html: { autocomplete: "new-password" } %>
+      <%= f.button :submit, "Start growing 🚀", :class => 'button button-orange' %>
+   <% end %>
+   </div>
+  </div>
+</div>
 
-            <div class="form-input">
-              <%# f.input :first_name,
-                required: true,
-                input_html: { autocomplete: "your first_name" } %>
-              <%# f.input :last_name,
-                required: true,
-                input_html: { autocomplete: "your last_name" } %>
-              <%# f.input :email,
-                required: true,
-                autofocus: true ,
-                input_html: { autocomplete: "email" }%>
-              <%# f.input :profile_picture,
-                required: true,
-                input_html: { autocomplete: "your profile" } %>
-              <%# f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-            </div>
-            <div class="form-actions">
-              <center><%# f.button :submit, "Start growing as a happy company", :class => 'btn btn-warning' %></center>
-            </div>
-            <%# end %>
-          </div>
- -->

@@ -3,53 +3,28 @@
   background-image: linear-gradient(to right,#FF7300,#FFC844);
   padding-bottom: 80px;
   padding-top: 80px;
+  height:650px;
 }
 
 .center-vertical-text{
-  margin-top: 120px;
+  margin-top: 80px;
 }
 
 .polygone{
- width: 420px;
- height: 30px;
+ width: 450px;
+ height: 23px;
  border-radius: 20px;
- background:#FF7300;
- font-size: 9px;
+ background:#F7C478;
+ font-size: 12px;
  padding: 5px;
+ padding-top: 3px;
 }
 
 .little_polygone {
-  width: 10px;
- height: 10px;
  border-radius: 10px;
- background:#f9b002;
- padding-left: 5px;
- margin-right: 5px;
-}
-
-.font-size {
- font-size: 13px;
-}
-
-.card_home {
-  background: #fff;
-  border-radius: 2px;
-  display: inline-block;
-  height: 600 px;
-  margin: 1rem;
-  position: relative;
-  width: 320px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.09);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.card_infos {
-  margin-left: 10px;
-  margin-right: 10px;
+ background:#FF850E;
+ margin-right: 7px;
+ margin-bottom: 4px;
 }
 
 .text_align {
@@ -57,7 +32,24 @@
 }
 
 .pop-new {
-  padding: 3px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 4px;
+  padding-bottom: 2px;
   color: white;
+}
+
+.small-font{
+  font-size: 7px;
+}
+
+.fixed-width{
+  width: 500px;
+  margin-left: 50px;
+
+}
+
+.margin-align{
+  margin-left: 55px;
 }
 

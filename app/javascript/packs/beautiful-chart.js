@@ -1,11 +1,23 @@
 import Chart from 'chart.js';
 
 function initChart() {
+  const myChartElement = document.getElementById("myChart");
+
+  if (myChartElement === null) { return false; }
 
   const myData = document.querySelector('.ratings_tools');
 
   console.log(myData);
-  const ctx = document.getElementById("myChart").getContext('2d');
+  const ctx = myChart.getContext('2d');
+
+  Chart.defaults.global.hover.mode = 'nearest';
+
+  Chart.defaults.global.legend.display = false;
+
+  Chart.defaults.global.defaultFontFamily = "'lato'";
+
+  Chart.defaults.global.defaultFontSize = 7;
+
 
   var myChart = new Chart(ctx, {
       type: 'line',
@@ -15,7 +27,7 @@ function initChart() {
               label: 'Notes on 5',
               data: $('.ratings_tools').data('ratings'),
               backgroundColor: [
-                  'rgba(249, 176, 2, 0.2)'
+                  'rgba(249, 176, 2, 0.3)'
               ],
               borderColor: [
                   'rgba(249, 176, 2)'
@@ -27,8 +39,17 @@ function initChart() {
           scales: {
               yAxes: [{
                   ticks: {
-                      beginAtZero:true
+                      beginAtZero:true,
+                      max:5,
+                      stepSize:1,
+                      fontFamily: "Lato",
+                      fontSize: 7,
+
+
+
+
                   }
+
               }]
           }
       }

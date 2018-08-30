@@ -1,39 +1,51 @@
 
+<div class="row">
+    <h1 class="orange-font text-center mid-font">Weekly survey</h1>
+  <br>
+ <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1">
   <div class="row">
-    <h1 class="orange-font text-center">Weekly survey</h1>
     <div class="picto-inline text-center">
-      <h3 class="light-font"><%= image_tag asset_path("mask.svg"), class: "big-picto" %><br><br>Totally anonymous</h3>
-      <h3 class="light-font"><%= image_tag asset_path("hourglass.svg"), class: "big-picto" %><br><br>10 seconds of your time</h3>
-      <h3 class="light-font"><%= image_tag asset_path("thumbs-up.svg"), class: "big-picto" %><br><br>Let's improve our work place</h3>
+      <h4 class="light-font"><%= image_tag asset_path("mask.svg"), class: "big-picto" %><br><br>Totally anonymous</h4>
+      <h4 class="light-font"><%= image_tag asset_path("thumbs-up.svg"), class: "big-picto" %><br><br>Let's improve your workplace</h4>
+      <h4 class="light-font"><%= image_tag asset_path("hourglass.svg"), class: "big-picto" %><br><br>30 seconds of your time</h4>
     </div>
-      <br><br>
   </div>
+</div>
 
- <div class="row">
-   <div class="cols-xs-12 col-sm-6 col-sm-offset-3">
-     <%= form_tag survey_responses_path(@survey) do |f| %>
-       <% @questions.each_with_index do |question, index| %>
-         <% response_key = "response_#{index + 1}" %>
-         <div class="question-container">
-           <div class="question-content">
-             <div class="slidecontainer">
-               <%= label_tag  response_key, question.text, class: "light-font orange-font text-center big-font" %>
-               <br><br>
-               <%= range_field response_key, :rating, in: 0..5, class: "form-control slider" %>
-               <!-- customise name of field for easier params -->
-               <%= hidden_field_tag "#{response_key}[question_id]", question.id  %>
-             </div>
-            </div>
-           <div class="question-next"><button id="next" class="button button-orange">Next</button></div>
-        </div>
-       <% end %>
-       <!-- text field to ask for review -->
+<div class="row">
+ <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+   <%= form_tag survey_responses_path(@survey) do |f| %>
+     <% @questions.each_with_index do |question, index| %>
+       <% response_key = "response_#{index + 1}" %>
        <div class="question-container">
-         <%= label_tag(:review, "Leave a review (optional)") %>
-         <%= text_field_tag(:review) %>
-         <%= submit_tag "Submit feedback", class: "button button-orange" %>
-       </div>
+         <div class="question-content">
+           <div class="slidecontainer">
+             <%= label_tag  response_key, question.text, class: "orange-font big-font" %>
+             <br><br>
+             <%= range_field response_key, :rating, in: 0..5, class: "form-control slider" %>
+             <div class="question-scale light-grey-text light-font">
+               <span>0</span>
+               <span>1</span>
+               <span>2</span>
+               <span>3</span>
+               <span>4</span>
+               <span>5</span>
+             </div>
+             <!-- customise name of field for easier params -->
+             <%= hidden_field_tag "#{response_key}[question_id]", question.id  %>
+           </div>
+          </div>
+         <div class="question-next"><button id="next" class="button button-orange">Next</button></div>
+      </div>
      <% end %>
-   </div>
+     <!-- text field to ask for review -->
+     <div class="question-container">
+       <%= label_tag(:review, "Leave a review (optional)") %>
+       <%= text_field_tag(:review)%>
+      </div>
+      <div class="text-center">
+       <%= submit_tag "Submit feedback", class: "button button-orange" %>
+     </div>
+   <% end %>
  </div>
 </div>

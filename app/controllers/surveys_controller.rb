@@ -22,8 +22,13 @@ class SurveysController < ApplicationController
     @tools_responses = []
     @team.questions.where(category: Category.where(name: "Tools & Processes")).each { |q| @tools_responses << q.responses }
     @tools = (@tools_responses.flatten.pluck(:rating).sum.to_f / @tools_responses.flatten.pluck(:rating).size.to_f).round(1)
+
+    # modify to only have one rating per survey, it's average
+    @surveys = Survey.where(team: @team)
+    @tools_labels = @surveys.pluck(:created_at).map { |date| date.strftime("%d/%m") }
+
     @tools_ratings = []
-    @tools_ratings = @tools_responses.flatten.pluck(:rating)
+    @surveys.each { |survey| @tools_ratings << survey.average_tool_rating }
 
     @enterprise_culture_responses = []
     @team.questions.where(category: Category.where(name: "Enterprise culture")).each { |q| @enterprise_culture_responses << q.responses }
@@ -32,14 +37,14 @@ class SurveysController < ApplicationController
     @global = ((@personal_growth + @well_being + @collaboration + @tools + @enterprise_culture)/5).round(1)
 
     @teams = Team.all
-    render 'surveys/show'
+    render 'surveys/global'
 
     # donner accès à un array de ratings (les 5 derniers)
     # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
   end
 
   def show
-    
+
 
     @team = Team.find(Survey.find(params[:id]).team_id)
     @teams = Team.all
@@ -68,12 +73,15 @@ class SurveysController < ApplicationController
     @survey.questions.where(category: Category.where(name: "Tools & Processes")).first.responses.each { |r| @tools_ratings << r.rating }
     @tools = (@tools_ratings.sum.to_f / @tools_ratings.size.to_f).round(1)
 
+    @tools_labels = @survey.created_at.strftime("%m/%d/%Y")
+
+
     @enterprise_culture_ratings = []
     @survey.questions.where(category: Category.where(name: "Enterprise culture")).first.responses.each { |r| @enterprise_culture_ratings << r.rating }
     @enterprise_culture = (@enterprise_culture_ratings.sum.to_f / @enterprise_culture_ratings.size.to_f).round(1)
 
     @global = ((@personal_growth + @well_being + @collaboration + @tools + @enterprise_culture)/5).round(1)
-    
+
     # donner accès à un array de ratings (les 5 derniers)
     # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
 
@@ -118,16 +126,16 @@ class SurveysController < ApplicationController
 
    def review_one
      @reviews = Survey.find(params[:survey_id]).reviews
-     
+
    end
 
    def reviews_team
-    
+
     @surveys = []
     Team.find(params[:team_id]).surveys.each {|survey| @surveys << survey }
     @reviews = []
     @surveys.each {|survey| survey.reviews.each {|instance| @reviews << instance}}
-    
+
     render 'surveys/review_one'
    end
 
@@ -135,8 +143,8 @@ class SurveysController < ApplicationController
     @surveys = []
     Survey.all.each {|survey| @surveys << survey }
     @reviews = []
-    @surveys.each {|survey| survey.reviews.each {|instance| @reviews << instance}} 
-    
+    @surveys.each {|survey| survey.reviews.each {|instance| @reviews << instance}}
+
     render 'surveys/review_one'
    end
 
