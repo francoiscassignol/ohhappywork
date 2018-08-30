@@ -47,7 +47,9 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
+       <% if params[:survey_id] === nil %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "button button-orange" %>
+      <% end %>
     <% end %>
   </div>
 
