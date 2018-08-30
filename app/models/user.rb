@@ -6,4 +6,12 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def super_user?
+   role === "super_user"
+  end
+
+  def team_leader?
+  	role === "team_leader"
+  end
 end
