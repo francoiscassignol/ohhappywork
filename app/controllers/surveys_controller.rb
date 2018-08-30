@@ -37,6 +37,17 @@ class SurveysController < ApplicationController
     @global = ((@personal_growth + @well_being + @collaboration + @tools + @enterprise_culture)/5).round(1)
 
     @teams = Team.all
+
+
+    #############
+
+    @survey_dates = @surveys.pluck(:created_at).map { |date| date.strftime("%d/%m") }
+
+    @overtime_global_ratings = []
+    @surveys.each { |survey| @overtime_global_ratings << survey.global_rating }
+
+    #############
+
     render 'surveys/global'
 
     # donner accès à un array de ratings (les 5 derniers)

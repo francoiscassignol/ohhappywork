@@ -1,0 +1,16 @@
+<div class="card orange-card">
+  <h4>Global Happiness</h4>
+  <div class="frame">
+      <%= content_tag :div, class: "ratings_tools", data: {ratings: Array(ratings), labels: Array(labels) } do %>
+    <% end %>
+    <canvas id="myChart" class="chart-dimensions"></canvas>
+  </div>
+  <% if params[:id] %>
+    <%= link_to "Reviews", survey_reviews_path(@survey), class: "button button-white" %>
+  <% elsif params[:team_id] %>
+    <%= link_to "Reviews", team_reviews_team_path(@team) , class: "button button-white" %>
+  <% else %>
+    <%= link_to "Reviews", review_all_path, class: "button button-white" %>
+  <% end %>
+</div>
+
