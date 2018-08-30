@@ -49,10 +49,4 @@ $border-radius-small: 2px;
 .custom-select.is-invalid ~ .invalid-tooltip {
   display: block;
 }
-
-.form-control:focus {
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
-
 // Override other variables below!
