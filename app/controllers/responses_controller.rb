@@ -1,4 +1,5 @@
 class ResponsesController < ApplicationController
+skip_before_action :authenticate_user!
  def new
    # response belongs to questio, question belongs to survey
    # if we want all question, find the suvey and fetch all the questions    @question = Question.find(params[:question_id])
