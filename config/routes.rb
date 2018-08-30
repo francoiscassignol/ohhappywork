@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get "/pages", to: "pages#show", as: :page_show
+  get "/thankyou", to: "pages#show", as: :page_show
   get 'review_all', to: 'surveys#review_all', as: :review_all
 
 

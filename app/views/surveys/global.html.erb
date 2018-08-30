@@ -6,7 +6,7 @@
       <% if ( current_user.role === "super_user" && (params[:id] != nil || params[:team_id] != nil) ) %>
 
         <div class="left-content-item">
-          <%= image_tag(asset_path('dash-default'), class: "padding-right icon-size", id: "dash") %>
+          <%= image_tag(asset_path('teams'), class: "padding-right icon-size", id: "dash") %>
 
           <p>
           <%= link_to "All surveys results", teams_path, class: "orange-font"%>
@@ -72,12 +72,12 @@
 
           <!-- render title -->
           <% if @team %>
-            <h1 class="orange-font light-font"><%= @team.name %>'s pulse dashboard</h1>
+            <h1 class="orange-font light-font margin-lefty"><%= @team.name %> pulse</h1>
             <% if @survey %>
               <p class="orange-font">Survey of <%= @survey.created_at.strftime("%m/%d/%Y") %></p>
             <% end %>
           <% else %>
-            <h1 class="orange-font light-font">All team's pulse dashboard</h1>
+            <h1 class="orange-font light-font margin-lefty">Company's pulse</h1>
           <% end %>
 
         </div>
@@ -111,12 +111,13 @@
         </div>
 
         <div class="col-md-4">
-          <%= render "shared/cards/collaboration_card", rating: @collaboration %>
+          <%= render "shared/cards/tools_and_processes_card", tools: @tools   %>
         </div>
 
         <div class="col-md-4">
-          <%= render "shared/cards/tools_and_processes_card", tools: @tools   %>
+          <%= render "shared/cards/collaboration_card", rating: @collaboration %>
         </div>
+
 
         <div class="col-md-4">
           <%= render "shared/cards/enterprise_culture_card", rating: @enterprise_culture %>

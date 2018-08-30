@@ -42,6 +42,13 @@
   padding: 10px;
 }
 
+.frame-transparant{
+  height: 120px;
+  padding: -5px;
+  margin-bottom: 10px;
+}
+
+
 .card-lg {
   height: 420px;
   width:400px;
@@ -99,8 +106,8 @@
 }
 
 .align-vertical-center{
-  margin-top: 70px;
-  margin-bottom: 50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .demi-card{
@@ -138,4 +145,8 @@
 
 .margin-lefty{
   margin-left: 15px;
+}
+
+.margin-topy{
+  margin-top: 35px;
 }
