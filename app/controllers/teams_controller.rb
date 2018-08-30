@@ -20,6 +20,11 @@ class TeamsController < ApplicationController
       @tools_ratings = []
       @surveys.each { |survey| @tools_ratings << survey.average_tool_rating }
 
+      @survey_dates = @surveys.pluck(:created_at).map { |date| date.strftime("%d/%m") }
+
+      @overtime_global_ratings = []
+      @surveys.each { |survey| @overtime_global_ratings << survey.global_rating }
+
       render 'surveys/global'
     end
   end

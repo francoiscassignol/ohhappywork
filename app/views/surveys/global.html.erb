@@ -96,110 +96,27 @@
 
       <div class="row">
         <div class="col-md-4">
-          <div class="card orange-card">
-
-            <h4 class="">Global Happiness</h4>
-            <% if @global <= 1  %>
-              <p class="picto-inline align-vertical-center">
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-              </p>
-            <% elsif @global > 1 && @global <= 2 %>
-              <p class="picto-inline align-vertical-center">
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-              </p>
-            <% elsif @global > 2 && @global <= 3 %>
-              <p class="picto-inline align-vertical-center">
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-              </p>
-            <% elsif @global > 3 && @global <= 4 %>
-              <p class="picto-inline align-vertical-center">
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-              </p>
-            <% elsif @global > 4 %>
-              <p class="picto-inline align-vertical-center">
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-              </p>
-              <% else @global = nil %>
-              <p class="light-font light-grey-text"> Waiting for data</p>
-            <% end %>
-            <% if params[:id] %>
-            <%= link_to "Reviews", survey_reviews_path(@survey), class: "button button-white" %>
-            <% elsif params[:team_id] %>
-            <%= link_to "Reviews", team_reviews_team_path(@team) , class: "button button-white" %>
-            <% else %>
-            <%= link_to "Reviews", review_all_path, class: "button button-white" %>
-            <% end %>
-          </div>
+          <%= render "shared/cards/global_rating", ratings: @overtime_global_ratings, labels: @survey_dates  %>
         </div>
 
         <div class="col-md-4">
-          <% if @well_being_question %>
-            <%= link_to question_path(@well_being_question) do %>
-              <%= render "shared/cards/well_being_card", rating: @well_being %>
-            <% end %>
-          <% else %>
-              <%= render "shared/cards/well_being_card", rating: @well_being %>
-          <% end %>
+          <%= render "shared/cards/well_being_card", rating: @well_being %>
         </div>
 
         <div class="col-md-4">
-          <% if @personal_growth_question %>
-            <%= link_to question_path(@personal_growth_question) do %>
-              <%= render "shared/cards/personal_growth_card", rating: @personal_growth %>
-            <% end %>
-          <% else %>
-              <%= render "shared/cards/personal_growth_card", rating: @personal_growth %>
-          <% end %>
+          <%= render "shared/cards/personal_growth_card", rating: @personal_growth %>
         </div>
 
         <div class="col-md-4">
-          <% if @collaboration_question %>
-            <%= link_to question_path(@collaboration_question) do %>
-              <%= render "shared/cards/collaboration_card", rating: @collaboration %>
-            <% end %>
-          <% else %>
-              <%= render "shared/cards/collaboration_card", rating: @collaboration %>
-          <% end %>
+          <%= render "shared/cards/collaboration_card", rating: @collaboration %>
         </div>
 
         <div class="col-md-4">
-          <% if @tool_question %>
-            <%= link_to question_path(@tool_question) do %>
-              <%= render "shared/cards/tools_and_processes_card", ratings: @tools, labels: @tools_labels %>
-            <% end %>
-          <% else %>
-              <%= render "shared/cards/tools_and_processes_card", ratings: @tools_ratings, labels: @tools_labels  %>
-          <% end %>
+          <%= render "shared/cards/tools_and_processes_card", tools: @tools   %>
         </div>
 
         <div class="col-md-4">
-          <% if @enterprise_culture_question %>
-            <%= link_to question_path(@enterprise_culture_question) do %>
-              <%= render "shared/cards/enterprise_culture_card", rating: @enterprise_culture %>
-            <% end %>
-          <% else %>
-              <%= render "shared/cards/enterprise_culture_card", rating: @enterprise_culture %>
-          <% end %>
+          <%= render "shared/cards/enterprise_culture_card", rating: @enterprise_culture %>
         </div>
 
 
