@@ -1,11 +1,7 @@
 class SurveysController < ApplicationController
 
   def index
-
-
-
     @team = Team.find(params[:team_id])
-
 
     @personal_growth_responses = []
     @team.questions.where(category: Category.first).each { |q| @personal_growth_responses << q.responses }
@@ -38,9 +34,6 @@ class SurveysController < ApplicationController
 
     @teams = Team.all
     render 'surveys/global'
-
-    # donner accès à un array de ratings (les 5 derniers)
-    # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
   end
 
   def show
@@ -82,9 +75,6 @@ class SurveysController < ApplicationController
 
     @global = ((@personal_growth + @well_being + @collaboration + @tools + @enterprise_culture)/5).round(1)
 
-    # donner accès à un array de ratings (les 5 derniers)
-    # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
-
     @users = []
     @responses = []
 
@@ -93,7 +83,9 @@ class SurveysController < ApplicationController
 
     @responses_number = @responses.size / 5
     @users_number = @users.size
-    @pourcentage = (@responses_number.to_f / @users_number.to_f) * 100
+    @pourcentage = ((@responses_number.to_f / @users_number.to_f) * 100).round(0)
+
+    @questions = @survey.questions.pluck(:text)
 
   end
 

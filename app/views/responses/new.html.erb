@@ -1,16 +1,17 @@
-
-<div class="row">
-    <h1 class="orange-font text-center mid-font">Weekly survey</h1>
-  <br>
+<h1 class="orange-font text-center mid-font letter-spacing">Weekly survey</h1>
+  <br><br>
  <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1">
   <div class="row">
+    <br><br><br><br><br>
     <div class="picto-inline text-center">
+      <h4 class="light-font"><%= image_tag asset_path("thumbs-up.svg"), class: "big-picto" %><br><br>Let's improve our workplace</h4>
       <h4 class="light-font"><%= image_tag asset_path("mask.svg"), class: "big-picto" %><br><br>Totally anonymous</h4>
-      <h4 class="light-font"><%= image_tag asset_path("thumbs-up.svg"), class: "big-picto" %><br><br>Let's improve your workplace</h4>
       <h4 class="light-font"><%= image_tag asset_path("hourglass.svg"), class: "big-picto" %><br><br>30 seconds of your time</h4>
     </div>
   </div>
+<br><br><br><br><br><br><br><br>
 </div>
+<div class="start-button-container"><button id="next" class="button button-orange">Start 🚀</button></div>
 
 <div class="row">
  <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
@@ -22,7 +23,7 @@
            <div class="slidecontainer">
              <%= label_tag  response_key, question.text, class: "orange-font big-font" %>
              <br><br>
-             <%= range_field response_key, :rating, in: 0..5, class: "form-control slider" %>
+             <%= range_field response_key, :rating, in: 0..5, class: "slider" %>
              <div class="question-scale light-grey-text light-font">
                <span>0</span>
                <span>1</span>
@@ -33,19 +34,24 @@
              </div>
              <!-- customise name of field for easier params -->
              <%= hidden_field_tag "#{response_key}[question_id]", question.id  %>
+            <div class="question-next"><button id="next" class="button button-orange">Next</button></div>
            </div>
           </div>
-         <div class="question-next"><button id="next" class="button button-orange">Next</button></div>
+        </div>
+       <% end %>
       </div>
-     <% end %>
+    </div>
      <!-- text field to ask for review -->
-     <div class="question-container">
-       <%= label_tag(:review, "Leave a review (optional)") %>
-       <%= text_field_tag(:review)%>
+
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+       <div class="question-container">
+         <%= label_tag :review, "Something else in your mind?", class: "light-font light-grey-text big-font" %>
+         <%= text_field_tag :review, "", class: 'form-control lg-input' %>
+         <br><br>
+        <div class="text-center"><%= submit_tag "Submit feedback", class: "button button-orange" %></div>
       </div>
-      <div class="text-center">
-       <%= submit_tag "Submit feedback", class: "button button-orange" %>
-     </div>
-   <% end %>
- </div>
-</div>
+    </div>
+  </div>
+
+        <% end %>
