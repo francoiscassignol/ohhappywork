@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!
 
   def home
-  	# raise
   	if user_signed_in?
 	  	if current_user.role === "super-user"
 	  		redirect_to teams_path

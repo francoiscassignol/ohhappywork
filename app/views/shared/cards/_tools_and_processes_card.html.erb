@@ -3,7 +3,7 @@
   <p class="light-grey-text">Training, systems and methods indicator </p>
   <div class="frame">
   <h4 class="light-font text-center"> Team's effectiveness </h4>
-    <% if tools <= 1  %>
+    <% if rating <= 1  %>
       <p class="picto-inline align-vertical-center margin-topy">
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
         <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
@@ -11,7 +11,7 @@
         <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
         <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
       </p>
-    <% elsif tools > 1 && tools <= 2 %>
+    <% elsif rating > 1 && rating <= 2 %>
       <p class="picto-inline align-vertical-center margin-topy">
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
@@ -19,7 +19,7 @@
         <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
         <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
       </p>
-    <% elsif tools > 2 && tools <= 3 %>
+    <% elsif rating > 2 && rating <= 3 %>
       <p class="picto-inline align-vertical-center margin-topy">
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
@@ -27,7 +27,7 @@
         <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
         <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
       </p>
-    <% elsif tools > 3 && tools <= 4 %>
+    <% elsif rating > 3 && rating <= 4 %>
       <p class="picto-inline align-vertical-center margin-topy">
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
@@ -35,7 +35,7 @@
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
         <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
       </p>
-    <% elsif tools > 4 %>
+    <% elsif rating > 4 %>
       <p class="picto-inline align-vertical-center margin-topy">
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
@@ -43,7 +43,7 @@
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
         <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
       </p>
-      <% else tools = nil %>
+      <% else rating = nil %>
       <p class="light-font light-grey-text"> Waiting for data</p>
     <% end %>
     <br><br><br>
