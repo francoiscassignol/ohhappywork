@@ -94,7 +94,6 @@ class SurveysController < ApplicationController
     @responses_number = @responses.size / 5
     @users_number = @users.size
     @pourcentage = (@responses_number.to_f / @users_number.to_f) * 100
-raise
 
   end
 
