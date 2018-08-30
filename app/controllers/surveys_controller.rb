@@ -121,10 +121,6 @@ class SurveysController < ApplicationController
     Team.find(params[:team_id]).users.each do |user|
       UserMailer.survey(user, @survey).deliver_later
     end
-
-    flash[:notice] = " #{current_user.first_name}, survey launch !"
-
-
    end
 
    def review_one

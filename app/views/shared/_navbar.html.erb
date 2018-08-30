@@ -1,6 +1,14 @@
 <div class="navbar-wagon">
   <!-- Logo -->
+  <% if user_signed_in? %>
+    <% if current_user.super_user? %>
+    <%= link_to "OHW", teams_path, class: "logo" %>
+    <% else current_user.team_leader?  %>
+    <%= link_to "OHW", team_surveys_path(current_user.team), class: "logo" %>
+    <% end %>
+  <% else %>
   <%= link_to "OHW", root_path, class: "logo" %>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
