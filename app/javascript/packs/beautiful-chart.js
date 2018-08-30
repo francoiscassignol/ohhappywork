@@ -6,7 +6,11 @@ function initChart() {
   Chart.defaults.global.hover.mode = 'nearest';
   Chart.defaults.global.legend.display = false;
   Chart.defaults.global.defaultFontFamily = "'lato'";
-  Chart.defaults.global.defaultFontSize = 7;
+  Chart.defaults.global.defaultFontWeight = '200';
+  Chart.defaults.global.defaultFontSize = 8;
+  Chart.defaults.global.defaultFontColor = '#FFF';
+  Chart.defaults.scale.gridLines.display = false;
+
   var myChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -15,10 +19,10 @@ function initChart() {
               label: 'Notes on 5',
               data: $('.ratings_tools').data('ratings'),
               backgroundColor: [
-                  'rgba(249, 176, 2, 0.3)'
+                  'rgba(255, 255, 255, 0.3)'
               ],
               borderColor: [
-                  'rgba(249, 176, 2)'
+                  'rgba(255, 255, 255)'
               ],
               borderWidth: 1
           }]
@@ -39,5 +43,3 @@ function initChart() {
   });
 }
 export default initChart;
-
-
