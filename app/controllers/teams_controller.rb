@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
       @tools_ratings = []
       @surveys.each { |survey| @tools_ratings << survey.average_tool_rating }
 
-      render 'surveys/show'
+      render 'surveys/global'
     end
   end
 end
