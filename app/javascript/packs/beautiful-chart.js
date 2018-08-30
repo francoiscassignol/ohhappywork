@@ -19,6 +19,11 @@ function initChart() {
   Chart.defaults.global.defaultFontSize = 7;
 
 
+  Chart.defaults.global.hover.mode = 'nearest';
+  Chart.defaults.global.legend.display = false;
+  Chart.defaults.global.defaultFontFamily = "'lato'";
+  Chart.defaults.global.defaultFontSize = 7;
+
   var myChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -43,10 +48,8 @@ function initChart() {
                       max:5,
                       stepSize:1,
                       fontFamily: "Lato",
-                      fontSize: 7,
 
-
-
+                      fontSize: 7
 
                   }
 
