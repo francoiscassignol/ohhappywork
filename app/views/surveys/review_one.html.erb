@@ -43,11 +43,11 @@
 
 
     <% if params[:team_id] %>
-  <%= link_to "Back In Business", team_surveys_path(Team.find(params[:team_id])), class: "button button-orange"%>
+  <%= link_to "Back to #{Team.find(params[:team_id]).name}'s dashboard", team_surveys_path(Team.find(params[:team_id])), class: "button button-orange"%>
   <% elsif params[:survey_id] %>
-  <%= link_to "Back In Business", survey_path(Survey.find(params[:survey_id])), class: "button button-orange"%>
+  <%= link_to "Back to survey", survey_path(Survey.find(params[:survey_id])), class: "button button-orange"%>
   <% else %>
-  <%= link_to "Back In Business", teams_path, class: "button button-orange" %>
+  <%= link_to "Back to global dashboard", teams_path, class: "button button-orange" %>
   <% end %>
 
 
