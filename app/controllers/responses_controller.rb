@@ -1,4 +1,5 @@
 class ResponsesController < ApplicationController
+skip_before_action :authenticate_user!
  def new
    # response belongs to questio, question belongs to survey
    # if we want all question, find the suvey and fetch all the questions    @question = Question.find(params[:question_id])
@@ -21,16 +22,14 @@ class ResponsesController < ApplicationController
      new_response.user = current_user
      # directly set so that we avoid triggering an SQL query
      new_response.question = Question.find(response[:question_id])
-     saved = new_response.save
+     saved = new_response.save!
    end
 
    @survey = Survey.find(params[:survey_id])
-   @survey.review = params[:review]
-   @survey.save!
 
-   # @review = Review.new(text: params[:review])
-   # @review.survey = @survey
-   # @review.save
+   @review = Review.new(content: params[:review])
+   @review.survey = @survey
+   @review.save
    redirect_to page_show_path
  end
 

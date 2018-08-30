@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <%= link_to "Confirm launching 🚀", team_surveys_path(params[:team_id]), method: :post, remote: true, class: "button button-orange" %>
+        <%= link_to "Confirm launching 🚀", team_surveys_path(params[:team_id]), method: :post, remote: true, class: "button button-orange","data-dismiss" => "modal" %>
       </div>
     </div>
   </div>

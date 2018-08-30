@@ -1,10 +1,9 @@
 <!--View the detail of one category of a survey -->
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <%#= link_to "Back", team_surveys_path(current_user.team_id), class: "light-grey-text" %>
-      <h1 class="orange-font"> Recap</h1>
+      <h1 class="orange-font margin-lefty">Recap</h1>
     </div>
   </div>
 
@@ -15,24 +14,15 @@
 
     <div class="col-md-8">
       <div class="card card-md">
-        <h4 class="text-center "> <%= @question.category.name %> question dated <%= @survey.created_at.strftime("%b %d, %Y") %></h4>
+        <h4 class="text-center orange-font big-font">Recommandations 💪</h4>
         <br><br><br><br>
-        <p class="text-center light-grey-text big-font">
-          "<%= @question.text %>"
-        </p>
-        <br><br>
-        <p class="text-center orange-font big-font">
-          <%= @rating.round(1)%> / 5
-        </p>
+
+      <div class="light-grey-text"><%= render "shared/recommandations/#{@type}_reco" %></div>
+
       </div>
     </div>
     <div class="col-md-12">
 
-      <div class="card card-long">
-
-          <%= render "shared/recommandations/#{@type}_reco" %>
-
-      </div>
 
       <%= link_to "Back", survey_path(Survey.find(Question.find(params[:id]).survey_id)), class: "button button-white" %>
     </div>

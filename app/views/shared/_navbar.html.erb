@@ -1,21 +1,31 @@
 <div class="navbar-wagon">
   <!-- Logo -->
+  <% if user_signed_in? %>
+    <% if current_user.super_user? %>
+    <%= link_to "OHW", teams_path, class: "logo" %>
+    <% else current_user.team_leader?  %>
+    <%= link_to "OHW", team_surveys_path(current_user.team), class: "logo" %>
+    <% end %>
+  <% else %>
   <%= link_to "OHW", root_path, class: "logo" %>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
      <% if params[:team_id]%>
+     <% if current_user.team_leader? %>
 
       <button type="button" class="button button-purple" data-toggle="modal" data-target="#myModal" >Launch survey <span><i class="fa fa-play-circle" aria-hidden="true"></i></span></button>
 
+      <% end %>
      <% end %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/audeai", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -37,7 +47,9 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+       <% if params[:survey_id] === nil %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "button button-orange" %>
+      <% end %>
     <% end %>
   </div>
 

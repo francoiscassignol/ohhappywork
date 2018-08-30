@@ -14,8 +14,8 @@ team_4 = Team.create!(name: "HR")
 # Create users
 
 
-aude = User.create!(first_name: "Aude",last_name: "Idh", email: "aude.idh@gmail.com", password: "azerty", role: "super_user")
-alex = User.create!(first_name: "Alex",last_name: "Grondin", email: "alex@mailinator.com", password: "azerty", role: "team_leader", team: team_1)
+aude = User.create!(first_name: "Aude",last_name: "Idh", email: "aude.idh@gmail.com", password: "azerty", role: "super_user", profile_picture:"https://kitt.lewagon.com/placeholder/users/audeai")
+alex = User.create!(first_name: "Alex",last_name: "Grondin", email: "alex@mailinator.com", password: "azerty", role: "team_leader", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/alexgrondin10")
 a1t1 = User.create!(first_name: "1",last_name: "team1", email: "1-team1@mailinator.com", password: "azerty", role: "team_member", team: team_1)
 a2t1 = User.create!(first_name: "2",last_name: "team1", email: "2-team1@mailinator.com", password: "azerty", role: "team_member", team: team_1)
 a3t1 = User.create!(first_name: "3",last_name: "team1", email: "3-team1@mailinator.com", password: "azerty", role: "team_member", team: team_1)

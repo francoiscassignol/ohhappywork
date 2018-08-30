@@ -18,6 +18,7 @@
   width: 200px;
   height: 100px;
   overflow: hidden;
+  margin-top: 10px;
 }
 
 // .chart-skills::before {
@@ -113,7 +114,7 @@
 }
 
 .chart-skills li:nth-child(2) span {
-  top: 36px;
+  top: 32px;
   left: 20px;
   transform: rotate(-36deg);
 }

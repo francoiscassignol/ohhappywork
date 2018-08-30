@@ -1,11 +1,7 @@
 class SurveysController < ApplicationController
 
   def index
-
-
-
     @team = Team.find(params[:team_id])
-
 
     @personal_growth_responses = []
     @team.questions.where(category: Category.first).each { |q| @personal_growth_responses << q.responses }
@@ -37,10 +33,18 @@ class SurveysController < ApplicationController
     @global = ((@personal_growth + @well_being + @collaboration + @tools + @enterprise_culture)/5).round(1)
 
     @teams = Team.all
-    render 'surveys/show'
 
-    # donner accès à un array de ratings (les 5 derniers)
-    # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
+
+    #############
+
+    @survey_dates = @surveys.pluck(:created_at).map { |date| date.strftime("%d/%m") }
+
+    @overtime_global_ratings = []
+    @surveys.each { |survey| @overtime_global_ratings << survey.global_rating }
+
+    #############
+
+    render 'surveys/global'
   end
 
   def show
@@ -82,10 +86,17 @@ class SurveysController < ApplicationController
 
     @global = ((@personal_growth + @well_being + @collaboration + @tools + @enterprise_culture)/5).round(1)
 
-    # donner accès à un array de ratings (les 5 derniers)
-    # donner accès à un array de labels "date" => qui correspondent aux 5 derniers ratings
+    @users = []
+    @responses = []
 
+    Survey.find(params[:id]).team.users.each{|user| @users << user}
+    Survey.find(params[:id]).questions.each {|question| question.responses.each{|response| @responses << response}}
 
+    @responses_number = @responses.size / 5
+    @users_number = @users.size
+    @pourcentage = ((@responses_number.to_f / @users_number.to_f) * 100).round(0)
+
+    @questions = @survey.questions.pluck(:text)
 
   end
 
@@ -108,10 +119,9 @@ class SurveysController < ApplicationController
     Question.create!(category: Category.find_by(name: "Enterprise culture"), text: @enterprise_culture_question_text.sample, survey: @survey )
 
     Team.find(params[:team_id]).users.each do |user|
-      UserMailer.survey(user, @survey).deliver_now
+      UserMailer.survey(user, @survey).deliver_later
     end
-
-  end
+   end
 
    def review_one
      @reviews = Survey.find(params[:survey_id]).reviews

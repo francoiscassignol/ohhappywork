@@ -139,3 +139,4 @@ window.addEventListener('resize', setCanvasSize, false);
 };
 
 export default BigAli;
+

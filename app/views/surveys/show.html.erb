@@ -1,85 +1,22 @@
 <!--Main dashboard-->
 <div class="flex-container">
-  <div class="left">
-    <div class="left-content">
-
-      <% if ( current_user.role === "super_user" && (params[:id] != nil || params[:team_id] != nil) ) %>
-
-        <div class="left-content-item">
-          <%= image_tag(asset_path('dash-default'), class: "padding-right icon-size", id: "dash") %>
-
-          <p>
-          <%= link_to "All surveys results", teams_path, class: "orange-font"%>
-          </p>
-        </div>
-
-        <div class="left-content-item">
-          <%= image_tag(asset_path('dash-default'), class: "padding-right icon-size", id: "dash") %>
-
-          <p>
-          <%= link_to "All #{@team.name}'s results", team_surveys_path(@team), class: "orange-font"%>
-          </p>
-        </div>
-        <div class="left-content-item">
-          <%= image_tag asset_path("history-default"), class: "padding-right icon-size", id: "history" %>
-          <p>Specific survey results</p>
-
-        </div>
-          <div class="margin-left">
-          <% @team.surveys.pluck(:id).each do |id| %>
-          <p><%= link_to "Survey of #{Survey.find(id).created_at.strftime("%m/%d/%Y")}", survey_path(Survey.find(id)), class: "orange-font" %></p>
-          <% end %>
-          </div>
-
-        <% elsif current_user.role === "super_user" %>
-
-          <div class="left-content-item">
-          <%= image_tag(asset_path('dash-default'), class: "padding-right icon-size", id: "dash") %>
-
-          <p>
-          <%= link_to "All surveys results", teams_path, class: "orange-font"%>
-          </p>
-          </div>
-
-        <% else %>
-          <div class="left-content-item">
-          <%= image_tag(asset_path('dash-default'), class: "padding-right icon-size", id: "dash") %>
-
-          <p>
-          <%= link_to "All #{@team.name}'s results", team_surveys_path(@team), class: "orange-font"%>
-          </p>
-        </div>
-        <div class="left-content-item">
-          <%= image_tag asset_path("history-default"), class: "padding-right icon-size", id: "history" %>
-          <p>Specific survey results</p>
-
-        </div>
-          <div class="margin-left">
-          <% @team.surveys.pluck(:id).each do |id| %>
-          <p><%= link_to "Survey of #{Survey.find(id).created_at.strftime("%m/%d/%Y")}", survey_path(Survey.find(id)), class: "orange-font" %></p>
-          <% end %>
-          </div>
-
-        <% end %>
-
-    </div>
-  </div>
-
+  <%= render "shared/sidebar" %>
   <div class="center">
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
-
-          <!-- render title -->
+        <div class="margin-lefty col-md-7">
           <% if @team %>
-            <h1 class="orange-font light-font"><%= @team.name %>'s pulse dashboard</h1>
             <% if @survey %>
-              <p class="orange-font">Survey of <%= @survey.created_at.strftime("%m/%d/%Y") %></p>
+              <h2 class="orange-font">Survey of <%= @survey.created_at.strftime("%A, %b %d  %Y") %></h2>
+            <p>Completion of the survey (<%=@responses_number %>/<%=@users_number%> team members)</p>
+            <div class="progress small-bar">
+              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"aria-valuemin="0"  aria-valuemax="100" style="width:<%= @pourcentage %>%"><%= @pourcentage %>%
+              </div>
+            </div>
             <% end %>
           <% else %>
             <h1 class="orange-font light-font">All team's pulse dashboard</h1>
           <% end %>
-
         </div>
         <div class="col-md-4">
           <div class="dropdown right">
@@ -93,129 +30,79 @@
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card orange-card">
-
-            <h4 class="">Global Happiness</h4>
-            <% if @global <= 1  %>
-              <p class="picto-inline align-vertical-center">
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-              </p>
-            <% elsif @global > 1 && @global <= 2 %>
-              <p class="picto-inline align-vertical-center">
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-              </p>
-            <% elsif @global > 2 && @global <= 3 %>
-              <p class="picto-inline align-vertical-center">
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-              </p>
-            <% elsif @global > 3 && @global <= 4 %>
-              <p class="picto-inline align-vertical-center">
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("grey-star.svg"), class: "picto" %>
-              </p>
-            <% elsif @global > 4 %>
-              <p class="picto-inline align-vertical-center">
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-                <%= image_tag asset_path("orange-star.svg"), class: "picto" %>
-              </p>
-              <% else @global = nil %>
-              <p class="light-font light-grey-text"> Waiting for data</p>
-            <% end %>
-            <% if params[:id] %>
-            <%= link_to "Reviews", survey_reviews_path(@survey), class: "button button-white" %>
-            <% elsif params[:team_id] %>
-            <%= link_to "Reviews", team_reviews_team_path(@team) , class: "button button-white" %>
-            <% else %>
-            <%= link_to "Reviews", review_all_path, class: "button button-white" %>
-            <% end %>
-          </div>
+      <div class="row card-long-slim blank-card ">
+        <div class="col-md-2 margin-center light-font light-grey-text">Categories</div>
+          <div class="col-md-1 margin-center">
+          <p class="light-font light-grey-text">Notes</p>
         </div>
-
-        <div class="col-md-4">
-          <% if @well_being_question %>
-            <%= link_to question_path(@well_being_question) do %>
-              <%= render "shared/cards/well_being_card", rating: @well_being %>
-            <% end %>
-          <% else %>
-              <%= render "shared/cards/well_being_card", rating: @well_being %>
-          <% end %>
+        <div class="col-md-6 margin-center">
+          <p class="light-grey-text light-font">Survey's questions</p>
         </div>
+      </div>
 
-        <div class="col-md-4">
-          <% if @personal_growth_question %>
-            <%= link_to question_path(@personal_growth_question) do %>
-              <%= render "shared/cards/personal_growth_card", rating: @personal_growth %>
-            <% end %>
-          <% else %>
-              <%= render "shared/cards/personal_growth_card", rating: @personal_growth %>
-          <% end %>
+      <!-- CARDS / CATEGORIES  -->
+      <div class="row card card-long-slim">
+        <div class="col-md-2 margin-center">Well being</div>
+          <div class="col-md-1 margin-center">
+          <p class="light-font light-grey-text orange-font bold-font"><%= (@well_being).round(1) %>/5</p>
         </div>
-
-        <div class="col-md-4">
-          <% if @collaboration_question %>
-            <%= link_to question_path(@collaboration_question) do %>
-              <%= render "shared/cards/collaboration_card", rating: @collaboration %>
-            <% end %>
-          <% else %>
-              <%= render "shared/cards/collaboration_card", rating: @collaboration %>
-          <% end %>
+        <div class="col-md-6 margin-center">
+          <p class="light-grey-text">"<%= @questions.first %>"</p>
         </div>
+      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@well_being_question), class: "button button-orange no-margin" %></div>
+      </div>
 
-        <div class="col-md-4">
-          <% if @tool_question %>
-            <%= link_to question_path(@tool_question) do %>
-              <%= render "shared/cards/tools_and_processes_card", ratings: @tools, labels: @tools_labels %>
-            <% end %>
-          <% else %>
-              <%= render "shared/cards/tools_and_processes_card", ratings: @tools_ratings, labels: @tools_labels  %>
-          <% end %>
+
+      <div class="row card card-long-slim">
+        <div class="col-md-2 margin-center">Personal growth</div>
+          <div class="col-md-1 margin-center">
+            <p class="light-font light-grey-text orange-font bold-font"><%= (@personal_growth).round(1) %>/5</p>
         </div>
-
-        <div class="col-md-4">
-          <% if @enterprise_culture_question %>
-            <%= link_to question_path(@enterprise_culture_question) do %>
-              <%= render "shared/cards/enterprise_culture_card", rating: @enterprise_culture %>
-            <% end %>
-          <% else %>
-              <%= render "shared/cards/enterprise_culture_card", rating: @enterprise_culture %>
-          <% end %>
+        <div class="col-md-6 margin-center">
+          <p class="light-grey-text">"<%= @questions.second %>"</p>
         </div>
+      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@personal_growth_question), class: "button button-orange no-margin" %></div>
+      </div>
 
+      <div class="row card card-long-slim">
+        <div class="col-md-2 margin-center">Collaboration</div>
+          <div class="col-md-1 margin-center">
+           <p class="light-font light-grey-text orange-font bold-font"><%= (@collaboration).round(1) %>/5</p>
+        </div>
+        <div class="col-md-6 margin-center">
+          <p class="light-grey-text">"<%= @questions.third %>"</p>
+        </div>
+      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@collaboration_question), class: "button button-orange no-margin" %></div>
+      </div>
 
+      <div class="row card card-long-slim">
+        <div class="col-md-2 margin-center">Tools & Processes</div>
+          <div class="col-md-1 margin-center">
+            <p class="light-font light-grey-text orange-font bold-font"><%= (@tools).round(1) %>/5</p>
+        </div>
+        <div class="col-md-6 margin-center">
+          <p class="light-grey-text">"<%= @questions.fourth %>"</p>
+        </div>
+      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@tool_question), class: "button button-orange no-margin" %></div>
+      </div>
+
+      <div class="row card card-long-slim">
+        <div class="col-md-2 margin-center">Enterprise culture</div>
+          <div class="col-md-1 margin-center">
+            <p class="light-font light-grey-text orange-font bold-font"><%= (@enterprise_culture).round(1) %>/5</p>
+        </div>
+        <div class="col-md-6 margin-center">
+          <p class="light-grey-text">"<%= @questions.fifth %>"</p>
+        </div>
+      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@enterprise_culture_question), class: "button button-orange no-margin" %></div>
+      </div>
+<%= link_to "Back to Dashboard", team_surveys_path(@team), class: "button button-white" %>
       </div>
     </div>
   </div>
   <div class="right">
-
   </div>
 </div>
-
 <% if params[:team_id] %>
   <%= render 'shared/modal' %>
 <% end %>
-
-
-<!-- waiting for the average given by the controller-->
-
-

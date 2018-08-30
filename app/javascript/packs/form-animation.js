@@ -1,9 +1,8 @@
-  // Variables
+ // Variables
 function runFormAnimation() {
   const buttons = document.querySelectorAll('#next');
   const container = document.querySelector(".question-container");
   // console.log(buttons);
-
 
   // Functions
   function initScroll(event){
