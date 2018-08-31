@@ -2,18 +2,19 @@
 
 <h1 align="center" style="font-size: 20px; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; color: rgb(243, 150, 37);">Oh Happy Work </h1>
 
-<p style="margin: 0; font-size: 14px; line-height: 32px; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; color: #555555; text-align: left;"> 
+<p style="margin: 0; font-size: 14px; line-height: 32px; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; color: #555555; text-align: left;">
 Hi <%= @user.first_name %>,<br>
 
-Your manager need you to improve his management thank to your anonyme feedback on your happiness at work !<br>
+Let's improve your workplace! Take on this quick anonymous survey and be part of the change you really want to see.
+<br>
 
-It will take around 17,677 secounds answer this short five close-questions. <br>
+Your opinion matters a lot! It will take no longer than 60 seconds to answer. <br>
 
 "That's one small step for you, one giant leap for your manager !"</p>
 <div align="center" class="button-container center " style="padding-right: 10px; padding-left: 10px; padding-top:10px; padding-bottom:10px; ">
 <%= link_to "Let's go", new_survey_response_url(@survey), style: "font-size: 16px; line-height: 34px; font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif; background-color: rgb(243, 150, 37); padding-right: 30px; padding-left: 30px; padding-top:10px; padding-bottom:10px; border-radius: 5px; color: white; text-decoration: none; " %></div>
 
-<p style="margin: 0; font-size: 14px; line-height: 32px; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; color: #555555; text-align: left;"> 
+<p style="margin: 0; font-size: 14px; line-height: 32px; font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; color: #555555; text-align: left;">
 Thank you <%= @user.first_name %>, <br>
 
 From your manager </p>

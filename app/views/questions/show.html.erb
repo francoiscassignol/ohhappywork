@@ -1,12 +1,15 @@
 <!--View the detail of one category of a survey -->
 <div class="container">
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-md-12">
       <%#= link_to "Back", team_surveys_path(current_user.team_id), class: "light-grey-text" %>
       <h1 class="orange-font margin-lefty">Recap</h1>
     </div>
   </div>
-
+ -->
+   <div class="col-md-12">
+    <%= link_to "Back", survey_path(Survey.find(Question.find(params[:id]).survey_id)), class: "button button-white" %>
+  </div>
   <div class="row">
     <div class="col-md-4">
         <%= render "shared/cards/#{@type}_card", rating: @rating, ratings: @ratings %>
@@ -19,10 +22,6 @@
       <div class="light-grey-text"><%= render "shared/recommandations/#{@type}_reco" %></div>
 
       </div>
-    </div>
-    <div class="col-md-12">
-      <%= link_to "Back", survey_path(Survey.find(Question.find(params[:id]).survey_id)), class: "button button-white" %>
-
     </div>
   </div>
 </div>

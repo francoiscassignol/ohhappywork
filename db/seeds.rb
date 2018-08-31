@@ -16,26 +16,17 @@ team_4 = Team.create!(name: "HR")
 
 aude = User.create!(first_name: "Aude",last_name: "Idh", email: "aude.idh@gmail.com", password: "azerty", role: "team_leader", profile_picture:"https://kitt.lewagon.com/placeholder/users/audeai", team: team_1)
 alex = User.create!(first_name: "Alex",last_name: "Grondin", email: "a.grondin@tbs-education.org", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/alexgrondin10")
-a1t1 = User.create!(first_name: "François",last_name: "Cassignol", email: "cassignol.fr@gmail.com", password: "azerty", role: "super_user", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
-a2t1 = User.create!(first_name: "Furkan",last_name: "team1", email: "furkankarayer@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a3t1 = User.create!(first_name: "Serghei",last_name: "team1", email: "mazur.serghei@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a4t1 = User.create!(first_name: "Nordin",last_name: "team1", email: "belkaceminordin@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a5t1 = User.create!(first_name: "Aude",last_name: "Idh", email: "arneijim@gmail.com", password: "azerty", role: "team_member",)
-a6t1 = User.create!(first_name: "Alex",last_name: "Grondin", email: "michaelbelzil@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a7t1 = User.create!(first_name: "Everett",last_name: "team1", email: "evwebre@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a8t1 = User.create!(first_name: "Justin",last_name: "team1", email: "jbernold@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a9t1 = User.create!(first_name: "Caroline",last_name: "team1", email: "carolineshearer88@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a10t1 = User.create!(first_name: "Kojo",last_name: "team1", email: "kojo@addaquay.io", password: "azerty", role: "team_member", team: team_1)
-a11t1 = User.create!(first_name: "Aaron",last_name: "Idh", email: "aaronjosephm@gmail.com", password: "azerty", role: "team_member")
-a12t1 = User.create!(first_name: "Sara",last_name: "Grondin", email: "geemdee@protonmail.ch", password: "azerty", role: "team_member", team: team_1)
-a13t1 = User.create!(first_name: "Elie",last_name: "team1", email: "HARFOUCHE14@GMAIL.COM", password: "azerty", role: "team_member", team: team_1)
-a14t1 = User.create!(first_name: "Ali",last_name: "team1", email: "alizahir@live.com", password: "azerty", role: "team_member", team: team_1)
-a15t1 = User.create!(first_name: "Sawyer",last_name: "team1", email: "sawyer.gilker@hotmail.com", password: "azerty", role: "team_member", team: team_1)
-a16t1 = User.create!(first_name: "Steph",last_name: "team1", email: "strudeau1910@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a17t1 = User.create!(first_name: "Mark",last_name: "team1", email: "msimmelkjaer@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a18t1 = User.create!(first_name: "Alexandre-Olivier",last_name: "team1", email: "nycz.ao@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a19t1 = User.create!(first_name: "Konstantin",last_name: "team1", email: "baumer.konstantin@gmail.com", password: "azerty", role: "team_member", team: team_1)
-a20t1 = User.create!(first_name: "Céline",last_name: "team1", email: "celine.te@mail.mcgill.ca", password: "azerty", role: "team_member", team: team_1)
+a1t1 = User.create!(first_name: "François",last_name: "Cassignol", email: "cassignol.fr@gmail.com", password: "azerty", role: "super_user", profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
+a3t1 = User.create!(first_name: "Serghei",last_name: "team1", email: "mazur.serghei@gmail.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
+a4t1 = User.create!(first_name: "Nordin",last_name: "team1", email: "belkaceminordin@gmail.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
+a5t1 = User.create!(first_name: "Aude",last_name: "Idh", email: "arneijim@gmail.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
+a6t1 = User.create!(first_name: "Alex",last_name: "Grondin", email: "michaelbelzil@gmail.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
+a9t1 = User.create!(first_name: "Caroline",last_name: "team1", email: "carolineshearer88@gmail.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
+a10t1 = User.create!(first_name: "Kojo",last_name: "team1", email: "kojo@addaquay.io", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
+a12t1 = User.create!(first_name: "Sara",last_name: "Grondin", email: "geemdee@protonmail.ch", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
+a14t1 = User.create!(first_name: "Ali",last_name: "team1", email: "alizahir@live.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
+a16t1 = User.create!(first_name: "Steph",last_name: "team1", email: "strudeau1910@gmail.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
+a20t1 = User.create!(first_name: "Céline",last_name: "team1", email: "celine.te@mail.mcgill.ca", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
 
 
 
@@ -82,7 +73,7 @@ enter = Category.create!(name: "Enterprise culture")
 #  end
 # end
 
-review_text = ["", "c'est stylé","Bof","Charlie ! Quel homme !", "ID arrête de bidouiller le controller","Quelle home Francis !","Alors Steph, cétait comment Drake ?"]
+review_text = ["The management really seems to care about our happiness & health, keep it up!", "Excellent onboarding and communication with management", "It is always cold in here", "A lot of diversities for New Grad to experience and learn", "Promotions tend to go to those that are willing to 'play the game' rather than those who deserve it","internal communication to be improved.", "It's hard to move to different departments within the company, and organization structure changes often","Great place to work great people", "Lack of support from higher ups when going through difficult times", "I really appreciate the flexible hours", "Too many meetings, not enough of saying what is needed", "very chill workers, good perks", "Expectation are very high from the executive. You have to perform in order to get the bonuses", "No incentive to excel", "endless cycles of processes which never change", "High pressure", "Meaningful work, great learning experience", "Flexible hours and supportive direct managers", "Limited growth opportunities in terms of career progression", "no pressure, good place to start", "pleasant coworkers and good work life balance","Open to discussions with better performing employees", "Amazing mentors to learn from"]
 
 @personal_growth_question_text = ["I feel like I can voice my opinion","I have the opportunity to grow within the organization","My organization celebrates team accomplishments as well as personal success"]
 @well_being_question_text = ["My direct manager cares about my well-being and support me when i am dealing with personal issues","I have the flexibility to take time off when I need to","I feel that I can maintain a healthy balance between work and my personal life"]
