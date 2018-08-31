@@ -1,5 +1,6 @@
 Response.destroy_all
 Question.destroy_all
+Review.destroy_all
 Survey.destroy_all
 User.destroy_all
 Team.destroy_all
@@ -23,7 +24,6 @@ a5t1 = User.create!(first_name: "Aude",last_name: "Idh", email: "arneijim@gmail.
 a6t1 = User.create!(first_name: "Alex",last_name: "Grondin", email: "michaelbelzil@gmail.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
 a9t1 = User.create!(first_name: "Caroline",last_name: "team1", email: "carolineshearer88@gmail.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
 a10t1 = User.create!(first_name: "Kojo",last_name: "team1", email: "kojo@addaquay.io", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
-a12t1 = User.create!(first_name: "Sara",last_name: "Grondin", email: "geemdee@protonmail.ch", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
 a14t1 = User.create!(first_name: "Ali",last_name: "team1", email: "alizahir@live.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
 a16t1 = User.create!(first_name: "Steph",last_name: "team1", email: "strudeau1910@gmail.com", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
 a20t1 = User.create!(first_name: "Céline",last_name: "team1", email: "celine.te@mail.mcgill.ca", password: "azerty", role: "team_member", team: team_1, profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
@@ -81,7 +81,7 @@ review_text = ["The management really seems to care about our happiness & health
 @tools_question_text = ["I  have access to the resources needed to do my work properly","The processes and tools provided are relevant  and helpful to accomplish my work","I am satisfied with the level of comfort and safety in my physical workplace"]
 @enterprise_culture_question_text = ["Leaders demonstrate  a vision that motivates me","I understand how my work contributes to the goals of my organization","I consider myself an ambassador for my organization"]
 #create surveys / questions
-
+surveys = []
 
 survey_1 = Survey.create!(team: team_1)
   question_1 = Question.create!(category: personal_growth, text: "I feel like I can voice my opinion", survey: survey_1 )
@@ -89,7 +89,7 @@ survey_1 = Survey.create!(team: team_1)
   question_3 =  Question.create!(category: col, text: "I can count on my colleagues when I need help", survey: survey_1 )
   question_4 =  Question.create!(category: tool, text: "I  have access to the resources needed to do my work properly", survey: survey_1 )
   question_5 = Question.create!(category: enter, text: "I understand how my work contributes to the goals of my organization", survey: survey_1 )
-
+surveys << survey_1
 
 team_1.users.each do |user|
   Response.create!(rating: rand(1..2), question: question_1, user: user)
@@ -120,6 +120,7 @@ survey_2 = Survey.create!(team: team_1)
   question_8 =  Question.create!(category: col, text: "I feel like I am part of a team", survey: survey_2 )
   question_9 =  Question.create!(category: tool, text: "The processes and tools provided are relevant  and helpful to accomplish my work", survey: survey_2 )
   question_10 =  Question.create!(category: enter, text: "I consider myself an ambassador for my organization", survey: survey_2 )
+surveys << survey_2
 
 team_1.users.each do |user|  
 Response.create!(rating: rand(2..3), question: question_6, user: user)
@@ -150,7 +151,7 @@ survey_3 = Survey.create!(team: team_1)
   question_13 =  Question.create!(category: col, text: "I feel like I am part of a team", survey: survey_3 )
   question_14 =  Question.create!(category: tool, text: "I  have access to the resources needed to do my work properly", survey: survey_3 )
   question_15 =  Question.create!(category: enter, text: "Leaders demonstrate  a vision that motivates me", survey: survey_3 )
-
+surveys << survey_3
 
 team_1.users.each do |user| 
 Response.create!(rating: rand(3..4), question: question_11, user: user)
@@ -178,6 +179,7 @@ survey_4 = Survey.create!(team: team_1)
   question_18 =  Question.create!(category: col, text: "I can count on my colleagues when I need help", survey: survey_4 )
   question_19 =  Question.create!(category: tool, text: "The processes and tools provided are relevant  and helpful to accomplish my work", survey: survey_4 )
   question_20 =  Question.create!(category: enter, text: "I understand how my work contributes to the goals of my organization", survey: survey_4 )
+surveys << survey_4
 
 team_1.users.each do |user| 
 Response.create!(rating: rand(4..5), question: question_16, user: user)
@@ -208,6 +210,7 @@ survey_5 = Survey.create!(team: team_1)
   question_23 =  Question.create!(category: col, text: "Communication among the team is honest and transparent", survey: survey_5 )
   question_24 =  Question.create!(category: tool, text: "The processes and tools provided are relevant  and helpful to accomplish my work", survey: survey_5 )
   question_25 =  Question.create!(category: enter, text: "Leaders demonstrate  a vision that motivates me", survey: survey_5 )
+surveys << survey_5
 
 team_2.users.each do |user| 
 Response.create!(rating: rand(4..5), question: question_21, user: user)
@@ -232,6 +235,7 @@ survey_6 = Survey.create!(team: team_2)
   question_28 =  Question.create!(category: col, text: "I feel like I am part of a team", survey: survey_6 )
   question_29 =  Question.create!(category: tool, text: "I  have access to the resources needed to do my work properly", survey: survey_6 )
   question_30 =  Question.create!(category: enter, text: "I understand how my work contributes to the goals of my organization", survey: survey_6 )
+surveys << survey_6 
 
 team_2.users.each do |user|
 Response.create!(rating: rand(1..3), question: question_26, user: user)
@@ -256,6 +260,8 @@ survey_7 = Survey.create!(team: team_2)
   question_33 =  Question.create!(category: col, text: "I can count on my colleagues when I need help", survey: survey_7 )
   question_34 =  Question.create!(category: tool, text: "I am satisfied with the level of comfort and safety in my physical workplace", survey: survey_7 )
   question_35 =  Question.create!(category: enter, text: "I consider myself an ambassador for my organization", survey: survey_7 )
+surveys << survey_7
+
 
 team_3.users.each do |user|
 Response.create!(rating: rand(1..3), question: question_31, user: user)
@@ -280,6 +286,7 @@ survey_8 = Survey.create!(team: team_2)
   question_38 =  Question.create!(category: col, text: "Communication among the team is honest and transparent", survey: survey_8 )
   question_39 =  Question.create!(category: tool, text: "The processes and tools provided are relevant  and helpful to accomplish my work", survey: survey_8 )
   question_40 =  Question.create!(category: enter, text: "Leaders demonstrate  a vision that motivates me", survey: survey_8 )
+surveys << survey_8
 
 team_3.users.each do |user|
 Response.create!(rating: rand(1..3), question: question_36, user: user)
@@ -304,6 +311,7 @@ survey_9 = Survey.create!(team: team_2)
   question_43 =  Question.create!(category: col, text: "I feel like I am part of a team", survey: survey_9 )
   question_44 =  Question.create!(category: tool, text: "The processes and tools provided are relevant  and helpful to accomplish my work", survey: survey_9 )
   question_45 =  Question.create!(category: enter, text: "I understand how my work contributes to the goals of my organization", survey: survey_9 )
+surveys << survey_9
 
 team_4.users.each do |user|
 Response.create!(rating: rand(1..3), question: question_41, user: user)
@@ -328,6 +336,7 @@ survey_10 = Survey.create!(team: team_3)
   question_48 =  Question.create!(category: col, text: "Communication among the team is honest and transparent", survey: survey_10 )
   question_49 =  Question.create!(category: tool, text: "I am satisfied with the level of comfort and safety in my physical workplace", survey: survey_10 )
   question_50 =  Question.create!(category: enter, text: "Leaders demonstrate  a vision that motivates me", survey: survey_10 )
+surveys << survey_10
 
 team_4.users.each do |user|
 Response.create!(rating: rand(2..4), question: question_46, user: user)
@@ -353,6 +362,7 @@ survey_11 = Survey.create!(team: team_3)
   question_53 =  Question.create!(category: col, text: "Communication among the team is honest and transparent", survey: survey_11 )
   question_54 =  Question.create!(category: tool, text: "I  have access to the resources needed to do my work properly", survey: survey_11 )
   question_55 =  Question.create!(category: enter, text: "I consider myself an ambassador for my organization", survey: survey_11 )
+surveys << survey_11
 
 team_4.users.each do |user|
 Response.create!(rating: rand(1..3), question: question_51, user: user)
@@ -377,6 +387,7 @@ survey_12 = Survey.create!(team: team_3)
   question_58 =  Question.create!(category: col, text: "I feel like I am part of a team", survey: survey_12 )
   question_59 =  Question.create!(category: tool, text: "I  have access to the resources needed to do my work properly", survey: survey_12 )
   question_60 =  Question.create!(category: enter, text: "I understand how my work contributes to the goals of my organization", survey: survey_12 )
+surveys << survey_12
 
 team_1.users.each do |user|
 Response.create!(rating: rand(3..5), question: question_56, user: a1t3)
@@ -407,6 +418,7 @@ survey_13 = Survey.create!(team: team_4)
   question_63 =  Question.create!(category: col, text: "I can count on my colleagues when I need help", survey: survey_13 )
   question_64 =  Question.create!(category: tool, text: "I am satisfied with the level of comfort and safety in my physical workplace", survey: survey_13 )
   question_65 =  Question.create!(category: enter, text: "Leaders demonstrate  a vision that motivates me", survey: survey_13 )
+surveys << survey_13
 
 team_1.users.each do |user|
 Response.create!(rating: rand(1..3), question: question_61, user: user)
@@ -432,6 +444,7 @@ survey_14 = Survey.create!(team: team_4)
   question_68 =  Question.create!(category: col, text: "I feel like I am part of a team", survey: survey_14 )
   question_69 =  Question.create!(category: tool, text: "I  have access to the resources needed to do my work properly", survey: survey_14 )
   question_70 =  Question.create!(category: enter, text: "I understand how my work contributes to the goals of my organization", survey: survey_14 )
+surveys << survey_14
 
 team_2.users.each do |user|
 Response.create!(rating: rand(1..3), question: question_66, user: user)
@@ -456,6 +469,7 @@ survey_15 = Survey.create!(team: team_4)
   question_73 =  Question.create!(category: col, text: "I feel like I am part of a team", survey: survey_15 )
   question_74 =  Question.create!(category: tool, text: "I am satisfied with the level of comfort and safety in my physical workplace", survey: survey_15 )
   question_75 =  Question.create!(category: enter, text: "I consider myself an ambassador for my organization", survey: survey_15 )
+surveys << survey_15
 
 team_3.users.each do |user|
 Response.create!(rating: rand(1..5), question: question_71, user: user)
@@ -474,12 +488,12 @@ Review.create!(content: review_text.sample, survey: survey_15)
 Review.create!(content: review_text.sample, survey: survey_15)
 Review.create!(content: review_text.sample, survey: survey_15)
 
+days = Array.new(surveys.size) { rand(1..25).to_s }
+months = Array.new(surveys.size) { rand(1..8).to_s  }
 
-
-
-
-
-
-
-
+surveys.each_with_index do |survey, i|
+  date_string = ["2018", months[i], days[i]].join("-")
+  survey.created_at = Date.parse(date_string)
+  survey.save
+end
 
