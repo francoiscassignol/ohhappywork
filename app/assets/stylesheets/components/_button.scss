@@ -11,6 +11,25 @@
     border-radius: 3px;
 }
 
+
+.button-small{
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 10px 8px;
+  cursor: pointer;
+  padding: 10px 30px;
+  border-radius: 3px;
+}
+
+.button-small:hover{
+  text-decoration:none;
+  color:white;
+}
+
 .button:hover {
   text-decoration: none;
   color: white;
