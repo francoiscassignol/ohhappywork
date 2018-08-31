@@ -77,14 +77,14 @@
               <p class="orange-font">Survey of <%= @survey.created_at.strftime("%m/%d/%Y") %></p>
             <% end %>
           <% else %>
-            <h1 class="orange-font light-font margin-lefty">Company's pulse</h1>
+            <h1 class="orange-font light-font margin-lefty">Company pulse</h1>
           <% end %>
 
         </div>
         <div class="col-md-4">
           <% if current_user.super_user? %>
           <div class="dropdown right">
-            <button class="dropbtn">Select your team <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
+            <button class="dropbtn">Select a team <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
             <div class="dropdown-content">
               <!-- render dropdown -->
               <% @teams.each do |team| %>
