@@ -30,7 +30,7 @@ a20t1 = User.create!(first_name: "Céline",last_name: "team1", email: "celine.te
 
 
 
-l2 = User.create!(first_name: "l2",last_name: "team2", email: "l2-team2@mailinator.com", password: "azerty", role: "team_leader", team: team_2)
+l2 = User.create!(first_name: "l2",last_name: "team2", email: "l2-team2@mailinator.com", password: "azerty", role: "team_leader", team: team_2 , profile_picture:"https://kitt.lewagon.com/placeholder/users/francoiscassignol")
 a1t2 = User.create!(first_name: "1",last_name: "team2", email: "1-team2@mailinator.com", password: "azerty", role: "team_member", team: team_2)
 a2t2 = User.create!(first_name: "2",last_name: "team2", email: "2-team2@mailinator.com", password: "azerty", role: "team_member", team: team_2)
 a3t2 = User.create!(first_name: "3",last_name: "team2", email: "3-team2@mailinator.com", password: "azerty", role: "team_member", team: team_2)
