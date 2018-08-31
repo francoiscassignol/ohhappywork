@@ -14,7 +14,7 @@
 }
 
 .Aligner-item {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .margin-center{
@@ -28,4 +28,11 @@
 
 .margin-top-negative{
   margin-top:-170px !important;
+}
+
+
+@for $i from 0 to 10 {
+  .margin-right-#{$i} {
+    margin-bottom: unquote($i + "%");
+  }
 }

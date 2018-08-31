@@ -7,7 +7,7 @@
         <div class="margin-lefty col-md-7">
           <% if @team %>
             <% if @survey %>
-              <h2 class="orange-font">Survey of <%= @survey.created_at.strftime("%A, %b %d  %Y") %></h2>
+              <h2 class="light-font">Survey of <%= @survey.created_at.strftime("%A, %b %d  %Y") %></h2>
             <p>Completion (<%=@responses_number %>/<%=@users_number%> team members)</p>
             <div class="progress small-bar">
               <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"aria-valuemin="0"  aria-valuemax="100" style="width:<%= @pourcentage %>%"><%= @pourcentage %>%
@@ -17,6 +17,9 @@
           <% else %>
             <h1 class="orange-font light-font">Company pulse</h1>
           <% end %>
+        </div>
+        <div class="col-md-3 margin-topy margin-lefty">
+        <%= link_to "See your reviews", survey_reviews_path(@survey), class: "button button-orange" %>
         </div>
         <div class="col-md-4">
           <div class="dropdown right">
@@ -53,7 +56,7 @@
         <div class="col-md-6 margin-center">
           <p class="light-grey-text">"<%= @questions.first %>"</p>
         </div>
-      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@well_being_question), class: "button button-orange no-margin" %></div>
+      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@well_being_question), class: "button-small button-orange no-margin" %></div>
       </div>
 
 
@@ -65,7 +68,7 @@
         <div class="col-md-6 margin-center">
           <p class="light-grey-text">"<%= @questions.second %>"</p>
         </div>
-      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@personal_growth_question), class: "button button-orange no-margin" %></div>
+      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@personal_growth_question), class: "button-small button-orange no-margin" %></div>
       </div>
 
       <div class="row card card-long-slim">
@@ -76,7 +79,7 @@
         <div class="col-md-6 margin-center">
           <p class="light-grey-text">"<%= @questions.third %>"</p>
         </div>
-      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@collaboration_question), class: "button button-orange no-margin" %></div>
+      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@collaboration_question), class: "button-small button-orange no-margin" %></div>
       </div>
 
       <div class="row card card-long-slim">
@@ -87,7 +90,7 @@
         <div class="col-md-6 margin-center">
           <p class="light-grey-text">"<%= @questions.fourth %>"</p>
         </div>
-      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@tool_question), class: "button button-orange no-margin" %></div>
+      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@tool_question), class: "button-small button-orange no-margin" %></div>
       </div>
 
       <div class="row card card-long-slim">
@@ -98,7 +101,7 @@
         <div class="col-md-6 margin-center">
           <p class="light-grey-text">"<%= @questions.fifth %>"</p>
         </div>
-      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@enterprise_culture_question), class: "button button-orange no-margin" %></div>
+      <div class="col-md-3 margin-center"><%= link_to 'Recommandations', question_path(@enterprise_culture_question), class: "button-small button-orange no-margin" %></div>
       </div>
       <%= link_to "Back to Dashboard", team_surveys_path(@team), class: "button button-white" %>
       <br><br><br><br>
