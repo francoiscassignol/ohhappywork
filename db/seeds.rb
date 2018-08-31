@@ -92,11 +92,11 @@ survey_1 = Survey.create!(team: team_1)
 surveys << survey_1
 
 team_1.users.each do |user|
-  Response.create!(rating: rand(1..2), question: question_1, user: user)
-  Response.create!(rating: rand(1..2), question: question_2, user: user)
-  Response.create!(rating: rand(1..2), question: question_3, user: user)
-  Response.create!(rating: rand(1..2), question: question_4, user: user)
-  Response.create!(rating: rand(1..2), question: question_5, user: user)
+  Response.create!(rating: rand(2..3), question: question_1, user: user)
+  Response.create!(rating: rand(2..3), question: question_2, user: user)
+  Response.create!(rating: rand(2..3), question: question_3, user: user)
+  Response.create!(rating: rand(2..3), question: question_4, user: user)
+  Response.create!(rating: rand(2..3), question: question_5, user: user)
 end
 
 
@@ -123,11 +123,11 @@ survey_2 = Survey.create!(team: team_1)
 surveys << survey_2
 
 team_1.users.each do |user|  
-Response.create!(rating: rand(2..3), question: question_6, user: user)
-Response.create!(rating: rand(2..3), question: question_7, user: user)
+Response.create!(rating: rand(3..4), question: question_6, user: user)
+Response.create!(rating: rand(3..4), question: question_7, user: user)
 Response.create!(rating: rand(2..3), question: question_8, user: user)
-Response.create!(rating: rand(2..3), question: question_9, user: user)
-Response.create!(rating: rand(2..3), question: question_10, user: user)
+Response.create!(rating: rand(3..4), question: question_9, user: user)
+Response.create!(rating: rand(3..4), question: question_10, user: user)
 end
 
 
@@ -155,8 +155,8 @@ surveys << survey_3
 
 team_1.users.each do |user| 
 Response.create!(rating: rand(3..4), question: question_11, user: user)
-Response.create!(rating: rand(3..4), question: question_12, user: user)
-Response.create!(rating: rand(3..4), question: question_13, user: user)
+Response.create!(rating: rand(2..3), question: question_12, user: user)
+Response.create!(rating: rand(2..3), question: question_13, user: user)
 Response.create!(rating: rand(3..4), question: question_14, user: user)
 Response.create!(rating: rand(3..4), question: question_15, user: user)
 end
@@ -183,8 +183,8 @@ surveys << survey_4
 
 team_1.users.each do |user| 
 Response.create!(rating: rand(4..5), question: question_16, user: user)
-Response.create!(rating: rand(4..5), question: question_17, user: user)
-Response.create!(rating: rand(4..5), question: question_18, user: user)
+Response.create!(rating: rand(2..4), question: question_17, user: user)
+Response.create!(rating: rand(2..3), question: question_18, user: user)
 Response.create!(rating: rand(4..5), question: question_19, user: user)
 Response.create!(rating: rand(4..5), question: question_20, user: user)
 end
@@ -210,12 +210,12 @@ survey_5 = Survey.create!(team: team_1)
   question_23 =  Question.create!(category: col, text: "Communication among the team is honest and transparent", survey: survey_5 )
   question_24 =  Question.create!(category: tool, text: "The processes and tools provided are relevant  and helpful to accomplish my work", survey: survey_5 )
   question_25 =  Question.create!(category: enter, text: "Leaders demonstrate  a vision that motivates me", survey: survey_5 )
-surveys << survey_5
 
-team_2.users.each do |user| 
+
+team_1.users.each do |user| 
 Response.create!(rating: rand(4..5), question: question_21, user: user)
-Response.create!(rating: rand(4..5), question: question_22, user: user)
-Response.create!(rating: rand(4..5), question: question_23, user: user)
+Response.create!(rating: rand(3..4), question: question_22, user: user)
+Response.create!(rating: rand(2..3), question: question_23, user: user)
 Response.create!(rating: rand(4..5), question: question_24, user: user)
 Response.create!(rating: rand(4..5), question: question_25, user: user)
 end
@@ -488,12 +488,16 @@ Review.create!(content: review_text.sample, survey: survey_15)
 Review.create!(content: review_text.sample, survey: survey_15)
 Review.create!(content: review_text.sample, survey: survey_15)
 
-days = Array.new(surveys.size) { rand(1..25).to_s }
-months = Array.new(surveys.size) { rand(1..8).to_s  }
+days = Array.new(surveys.size) { rand(1..10).to_s }
+months = Array.new(surveys.size) { rand(3..8).to_s  }
 
 surveys.each_with_index do |survey, i|
   date_string = ["2018", months[i], days[i]].join("-")
   survey.created_at = Date.parse(date_string)
   survey.save
 end
+
+date_string = ["2018", "8", "20"].join("-")
+survey_5.created_at = Date.parse(date_string)
+survey_5.save
 

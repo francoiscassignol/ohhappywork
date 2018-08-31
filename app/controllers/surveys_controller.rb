@@ -105,11 +105,11 @@ class SurveysController < ApplicationController
 
     @team = Team.find(params[:team_id])
 
-    @personal_growth_question_text = ["I feel like I can voice my opinion","I have the opportunity to grow within the organization","My organization celebrates team accomplishments as well as personal success"]
-    @well_being_question_text = ["My direct manager cares about my well-being and support me when i am dealing with personal issues","I have the flexibility to take time off when I need to","I feel that I can maintain a healthy balance between work and my personal life"]
-    @collaboration_question_text = ["I can count on my colleagues when I need help", "I feel like I am part of a team","Communication among the team is honest and transparent"]
-    @tools_question_text = ["I  have access to the resources needed to do my work properly","The processes and tools provided are relevant  and helpful to accomplish my work","I am satisfied with the level of comfort and safety in my physical workplace"]
-    @enterprise_culture_question_text = ["Leaders demonstrate  a vision that motivates me","I understand how my work contributes to the goals of my organization","I consider myself an ambassador for my organization"]
+    @personal_growth_question_text = ["I have the opportunity to grow within the organization"]
+    @well_being_question_text = ["I have the flexibility to take time off when I need to"]
+    @collaboration_question_text = ["I can count on my colleagues when I need help"]
+    @tools_question_text = ["I  have access to the resources needed to do my work properly"]
+    @enterprise_culture_question_text = ["I consider myself an ambassador for my organization"]
 
     @survey = Survey.create!(team: Team.find(params[:team_id]))
     Question.create!(category: Category.first, text: @personal_growth_question_text.sample, survey: @survey )
