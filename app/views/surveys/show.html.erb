@@ -20,7 +20,9 @@
         </div>
         <div class="col-md-4">
           <div class="dropdown right">
+            <% if current_user.super_user? %>
             <button class="dropbtn">Select your team <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></button>
+            <% end%>
             <div class="dropdown-content">
               <!-- render dropdown -->
               <% @teams.each do |team| %>
