@@ -4,7 +4,7 @@
       <% if params[:team_id] %>
         <h1 class="orange-font light-font"><%= @reviews.first.survey.team.name %>'s reviews</h1>
       <% elsif params[:survey_id] %>
-        <h1 class="orange-font light-font"><%= @reviews.first.survey.team.name %>'s reviews on <%= @reviews.first.survey.created_at.strftime("%m/%d/%Y")%></h1>
+        <h1 class="orange-font light-font"><%= @reviews.first.survey.team.name %>'s reviews on <%= @reviews.first.survey.created_at.strftime("%d/%m/%Y")%></h1>
       <% else %>
         <h1 class="orange-font light-font margin-lefty">All reviews</h1>
       <% end %>
@@ -31,7 +31,7 @@
         </div>
         <div class="message-name">
           <p>From <%= review.survey.team.name %>'s team on
-          <%= review.created_at.strftime("%m/%d/%Y") %></p>
+          <%= review.created_at.strftime("%d/%m/%Y") %></p>
         </div>
       </div>
     </div>
