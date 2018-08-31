@@ -30,7 +30,7 @@
           <p>Specific survey results</p>
         </div>
           <div class="margin-left">
-          <% @team.surveys.each do |id| %>
+          <% @team.surveys.each do |survey| %>
           <p><%= link_to "Survey of #{survey.created_at.strftime("%d/%m/%Y")}", survey_path(survey), class: "orange-font" %></p>
           <% end %>
           </div>
