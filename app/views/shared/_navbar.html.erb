@@ -1,6 +1,5 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-
   <% if user_signed_in? %>
     <% if current_user.super_user? %>
     <%= link_to "OHW", teams_path, class: "logo" %>

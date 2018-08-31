@@ -26,8 +26,8 @@
 
         </div>
           <div class="margin-left">
-          <% @team.surveys.pluck(:id).each do |id| %>
-          <p><%= link_to "Survey of #{Survey.find(id).created_at.strftime("%m/%d/%Y")}", survey_path(Survey.find(id)), class: "orange-font" %></p>
+          <% @team.surveys.each do |survey| %>
+            <p><%= link_to "Survey of #{survey.created_at.strftime("%d/%m/%Y")}", survey_path(survey), class: "orange-font" %></p>
           <% end %>
           </div>
 
@@ -55,8 +55,8 @@
 
         </div>
           <div class="margin-left">
-          <% @team.surveys.pluck(:id).each do |id| %>
-          <p><%= link_to "Survey of #{Survey.find(id).created_at.strftime("%m/%d/%Y")}", survey_path(Survey.find(id)), class: "orange-font" %></p>
+          <% @team.surveys.each do |survey| %>
+            <p><%= link_to "Survey of #{survey.created_at.strftime("%d/%m/%Y")}", survey_path(survey), class: "orange-font" %></p>
           <% end %>
           </div>
 
@@ -74,7 +74,7 @@
           <% if @team %>
             <h1 class="orange-font light-font margin-lefty"><%= @team.name %> pulse</h1>
             <% if @survey %>
-              <p class="orange-font">Survey of <%= @survey.created_at.strftime("%m/%d/%Y") %></p>
+              <p class="orange-font">Survey of <%= @survey.created_at.strftime("%d/%m/%Y") %></p>
             <% end %>
           <% else %>
             <h1 class="orange-font light-font margin-lefty">Company pulse</h1>

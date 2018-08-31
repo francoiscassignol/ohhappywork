@@ -14,8 +14,8 @@
           <p>Specific survey results</p>
         </div>
           <div class="margin-left">
-          <% @team.surveys.pluck(:id).each do |id| %>
-          <p><%= link_to "Survey of #{Survey.find(id).created_at.strftime("%m/%d/%Y")}", survey_path(Survey.find(id)), class: "orange-font" %></p>
+          <% @team.surveys.each do |survey| %>
+            <p><%= link_to "Survey of #{survey.created_at.strftime("%d/%m/%Y")}", survey_path(survey), class: "orange-font" %></p>
           <% end %>
           </div>
         <% else %>
@@ -30,8 +30,8 @@
           <p>Specific survey results</p>
         </div>
           <div class="margin-left">
-          <% @team.surveys.pluck(:id).each do |id| %>
-          <p><%= link_to "Survey of #{Survey.find(id).created_at.strftime("%m/%d/%Y")}", survey_path(Survey.find(id)), class: "orange-font" %></p>
+          <% @team.surveys.each do |id| %>
+          <p><%= link_to "Survey of #{survey.created_at.strftime("%d/%m/%Y")}", survey_path(survey), class: "orange-font" %></p>
           <% end %>
           </div>
         <% end %>
